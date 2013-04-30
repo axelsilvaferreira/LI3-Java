@@ -1,6 +1,10 @@
+.DS_Store
+.localized
+
 *.class
 
 # Package Files #
 *.jar
 *.war
 *.ear
+
