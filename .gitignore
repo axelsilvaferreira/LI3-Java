@@ -8,3 +8,5 @@
 *.war
 *.ear
 
+/LI3-Java/nbproject/private/
+/LI3-Java/build/
