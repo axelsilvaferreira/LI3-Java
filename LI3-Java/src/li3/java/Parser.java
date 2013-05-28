@@ -14,10 +14,12 @@ public class Parser {
     
     public static void trimAutorAno (String linha) {
         String[] campos = linha.split(",");
+        
         for (int i = 0; i < campos.length; i++) {
             if (i == campos.length-1) System.out.println("<<<ANO>>>");
             System.out.println(campos[i].trim());
         }
+        
         System.out.println();
     }
     

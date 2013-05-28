@@ -8,7 +8,7 @@ package li3.java;
  *
  * @author joaorua
  */
-public class Autor {
+public class Artigo {
     
     private String nome;
 
@@ -26,7 +26,7 @@ public class Autor {
         this.nome = nome;
     }
     
-    public Autor(String nome) {
+    public Artigo(String nome) {
         this.nome = nome;
     }
     
