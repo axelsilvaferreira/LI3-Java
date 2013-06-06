@@ -77,14 +77,21 @@ public class Autor {
         return coautores.containsKey(coautor);
     }
     
+    public int contaCoautores(){
+        return coautores.size();
+    }
+    
     public String toString (){
         StringBuilder s = new StringBuilder();
-        
+        int i=1;
+        s.append("\n::::: Autor :::::");
         s.append("\nAutor: ").append(nome);
         s.append("\nNº Artigos: ").append(artigos);
         if (coautores.isEmpty()) s.append("\n");
         for (Coautores c : coautores.values()) {
+            s.append("\n --->" + i +"º Coautor <---\n");
             s.append(c).append("\n");
+            i++;
         }
         
         return s.toString();

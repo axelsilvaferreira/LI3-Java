@@ -40,7 +40,7 @@ public class Coautores {
     
     public String toString(){
         StringBuilder s = new StringBuilder();
-        s.append("\n |Coautor|");
+        
         s.append("\n Nome: ").append(nome);
         s.append("\n Nº Artigos: ").append(artigos);
         

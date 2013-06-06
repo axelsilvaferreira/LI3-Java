@@ -61,6 +61,10 @@ public class Ano {
         }
     }
     
+    public int numeroAutores(){
+        return autores.size();
+    }
+    
     public String toString(){
         StringBuilder s = new StringBuilder();
         

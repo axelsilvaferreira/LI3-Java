@@ -4,6 +4,7 @@
  */
 package li3.java;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.TreeMap;
 
@@ -76,6 +77,11 @@ public class Anos {
         */
         
     }
+    
+    public int numeroAnos(){
+        return anos.size();
+    }
+    
     //public void add
     
     public String toString(){

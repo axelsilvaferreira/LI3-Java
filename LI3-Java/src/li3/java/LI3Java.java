@@ -19,15 +19,7 @@ public class LI3Java {
     
     public static String[] trimAutorAno (String linha) {
         String[] dados = linha.split(",");
-        
-        /*
-        for (int i = 0; i < campos.length; i++) {
-            //if (i == campos.length-1) System.out.println("<<<ANO>>>");
-            //System.out.println(campos[i].trim());
-            
-        }
-        *
-        */
+       
         return dados;
         
     }
@@ -41,12 +33,17 @@ public class LI3Java {
         
         linhas = FileInput.txtInput();
         
-        /*
+        
         for (int i = 0; i < linhas.size(); i++) {
             dados = trimAutorAno(linhas.get(i));
-        
+            //System.out.println("|" + dados[dados.length-1].trim() + "|");
+            for (int j = 0; j < dados.length-2; j++) {
+                for (int k = 0; k < dados.length-2; k++) {
+                    if (j!=k) anos.addAutorCoautor(dados[dados.length-1].trim(),dados[j].trim(), dados[k].trim());
+                }
+            }
         }
-        */
+        
         /*
         anos.addAno("2013");
         ano = anos.getAno("2013");
@@ -58,13 +55,16 @@ public class LI3Java {
         ano2.addAutor("Joao Rua");
         
         */
-        
+        /*
         anos.addAutorCoautor("2013", "Joao Rua", "Eduardo Pereira");
         anos.addAutorCoautor("2013", "Joao Rua", "Miguel Barros");
         anos.addAutorCoautor("2013", "Joao Rua", "Miguel Barros");
         anos.addAutorCoautor("2013", "Eduardo Pereira", "Miguel Barros");
         anos.addAutorCoautor("2012", "Eduardo Pereira", "Miguel Barros");
-        System.out.println(anos.toString());
+        */
+        //System.out.println(anos.existeAno("2012"));
+        //ano = anos.getAno("1984");
+        //System.out.println(ano.toString());
     }
 
 }
