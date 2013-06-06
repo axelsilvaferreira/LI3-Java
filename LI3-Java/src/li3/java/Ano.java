@@ -4,6 +4,7 @@
  */
 package li3.java;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -11,7 +12,9 @@ import java.util.HashSet;
  *
  * @author joaorua
  */
-public class Ano {
+public class Ano implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     private String ano;
     private HashMap<String,Autor> autores;

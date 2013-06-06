@@ -5,6 +5,7 @@
 
 package li3.java;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
@@ -12,7 +13,9 @@ import java.util.HashMap;
  * @author joaorua
  */
 
-public class Autor {
+public class Autor implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     private String nome;
     private int artigos;

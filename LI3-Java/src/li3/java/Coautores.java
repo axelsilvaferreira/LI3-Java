@@ -4,11 +4,16 @@
  */
 package li3.java;
 
+import java.io.Serializable;
+
 /**
  *
  * @author joaorua
  */
-public class Coautores {
+public class Coautores implements Serializable{
+    
+    private static final long serialVersionUID = 1L;
+    
     private String nome;
     private int artigos;
 

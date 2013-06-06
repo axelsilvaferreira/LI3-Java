@@ -4,6 +4,7 @@
  */
 package li3.java;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.TreeMap;
@@ -12,7 +13,8 @@ import java.util.TreeMap;
  *
  * @author joaorua
  */
-public class Anos {
+public class Anos implements Serializable{
+    private static final long serialVersionUID = 1L;
     private TreeMap<String,Ano> anos;
 
     public Anos(){
