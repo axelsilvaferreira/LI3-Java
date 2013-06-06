@@ -47,6 +47,7 @@ public class LI3Java {
         
         }
         */
+        /*
         anos.addAno("2013");
         ano = anos.getAno("2013");
         ano.addAutor("Joao Rua");
@@ -56,7 +57,13 @@ public class LI3Java {
         ano2.addAutor("Eduardo Pereira");
         ano2.addAutor("Joao Rua");
         
+        */
+        
         anos.addAutorCoautor("2013", "Joao Rua", "Eduardo Pereira");
+        anos.addAutorCoautor("2013", "Joao Rua", "Miguel Barros");
+        anos.addAutorCoautor("2013", "Joao Rua", "Miguel Barros");
+        anos.addAutorCoautor("2013", "Eduardo Pereira", "Miguel Barros");
+        anos.addAutorCoautor("2012", "Eduardo Pereira", "Miguel Barros");
         System.out.println(anos.toString());
     }
 

@@ -66,7 +66,7 @@ public class Autor {
         Coautores a;
         if (existCoautor(coautor)){
             a = coautores.get(coautor);
-            a.setArtigos(artigos+1);
+            a.setArtigos(a.getArtigos()+1);
         } else {
             a = new Coautores(coautor);
             coautores.put(coautor, a);

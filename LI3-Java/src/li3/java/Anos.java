@@ -38,7 +38,7 @@ public class Anos {
     }
     public void addAno(String ano){
         if (!existeAno(ano)){
-            Ano a = new Ano();
+            Ano a = new Ano(ano);
             anos.put(ano, a);
         }
     }

@@ -23,8 +23,9 @@ public class Ano {
     public Ano(String ano){
         this.ano = ano;
         
-        Autor a = new Autor();
-        autores.put(ano, a);
+        //Autor a = new Autor();
+        autores = new HashMap<String, Autor>();
+        //autores.put(ano, a);
     }
     
     public Ano(HashMap<String, Autor> autores) {
