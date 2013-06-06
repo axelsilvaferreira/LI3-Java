@@ -7,6 +7,7 @@ package li3.java;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -66,6 +67,35 @@ public class Ano implements Serializable {
     
     public int numeroAutores(){
         return autores.size();
+    }
+    
+    public ArrayList<String> nomesAutores(){
+        ArrayList<String> nomes = new ArrayList<String>();
+        for (Autor a: autores.values()){
+            nomes.add(a.getNome());
+        }
+        return nomes;
+    }
+    
+    public int semCoautores(){
+        int i =0;
+        for (Autor a: autores.values()){
+            //System.out.println(a.contaCoautores());
+            if (a.contaCoautores() == 0){
+                i+=1;
+            }
+        }
+        return i;
+    }
+    
+    public int comCoautores(){
+        int i = 0;
+        for (Autor a: autores.values()){
+            if (a.contaCoautores() != 0){
+                i+=1;
+            }
+        }
+        return i;
     }
     
     public String toString(){

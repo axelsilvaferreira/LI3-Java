@@ -81,7 +81,11 @@ public class Autor implements Serializable {
     }
     
     public int contaCoautores(){
-        return coautores.size();
+        if (coautores.isEmpty()){ 
+            return 0;
+        } else {
+            return coautores.size();
+        }
     }
     
     public String toString (){

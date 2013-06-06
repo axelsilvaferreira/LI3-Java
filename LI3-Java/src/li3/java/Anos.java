@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  *
@@ -46,6 +47,33 @@ public class Anos implements Serializable{
         }
     }
     
+    public int numeroAutoresTotal(){
+        TreeSet<String> todos = new TreeSet<String>();
+        for (Ano a : anos.values()) {
+            ArrayList<String> nomes = a.nomesAutores();
+            for (int i=0; i < nomes.size(); i++){
+                todos.add(nomes.get(i));
+            }
+        }
+        return todos.size();
+    }
+    
+    public int numeroAutoresSemCO(){
+        int numero = 0;
+        for (Ano a : anos.values()){
+            numero+=a.semCoautores();
+        }
+        return numero;
+    }
+    
+    public int numeroAutoresComCO(){
+        int numero = 0;
+        for (Ano a : anos.values()){
+            numero+=a.comCoautores();
+        }
+        return numero;
+    }
+    
     public void addAutorCoautor(String a, String autor1, String autor2){
         Ano ano;
         Autor autor;
@@ -57,26 +85,15 @@ public class Anos implements Serializable{
         autor = ano.getAutor(autor1);
         autor.addCoautor(autor2);
         
-        /*
-        if (existeAno(a)){
-            ano = anos.get(a);
-            if(ano.existeAutor(autor1)){
-                autor = ano.getAutor(autor1);
-                if(autor.existCoautor(autor2)) {
-                    coautor = autor.getCoautor(autor2);
-                } else {
-                    coautor = new Coautores(autor2);
-                }
-            } else {
-                autor = new Autor(autor1);
-                coautor = new Coautores(autor2);
-            }
-        } else {
-            ano = new Ano(a);
-            autor = new Autor(autor1);
-            coautor = new Coautores(autor2);   
-        }
-        */
+    }
+    
+    public void addAutor(String a, String autor1){
+        Ano ano;
+        Autor autor;
+        
+        addAno(a);
+        ano = getAno(a);
+        ano.addAutor(autor1);
         
     }
     
@@ -84,6 +101,14 @@ public class Anos implements Serializable{
         return anos.size();
     }
     
+    
+    public String anoInicial(){
+        return anos.firstKey();
+    }
+    
+    public String anoFinal(){
+        return anos.lastKey();
+    }
     //public void add
     
     public String toString(){
