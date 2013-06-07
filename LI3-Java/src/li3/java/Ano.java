@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 /**
  *
@@ -96,6 +97,16 @@ public class Ano implements Serializable {
             }
         }
         return i;
+    }
+    
+    public HashMap<String,Integer> topArtigos(){
+        HashMap<String,Integer> top = new HashMap<String,Integer>();
+        for (Autor a : autores.values()) {
+            //System.out.println(a.getNome()+"|"+a.getArtigos());
+            top.put(a.getNome(), a.getArtigos());
+        }
+        //System.out.println(top.toString());
+        return top;
     }
     
     public String toString(){
