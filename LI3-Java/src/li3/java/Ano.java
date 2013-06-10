@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.TreeMap;
 
 /**
@@ -52,6 +53,22 @@ public class Ano implements Serializable {
     public boolean existeAutor(String autor){
         return autores.containsKey(autor);
     }
+    
+    public boolean existeCoautor(String coautor){
+        return this.existeCoautor(coautor);
+    }
+    
+    public boolean existeListaCoautores(String[] nomes){
+        Integer i;
+        Boolean flag=false;
+        for (i = 0; i < nomes.length; i++) {
+            flag=existeCoautor(nomes[i]);
+            if(flag.equals(false)) break;
+        }
+        
+        return flag;
+    }
+    
     
     public void addAutor (String autor){
         Autor a;
@@ -107,6 +124,37 @@ public class Ano implements Serializable {
         }
         //System.out.println(top.toString());
         return top;
+    }
+    
+    public HashMap<String,Integer> topCOArtigos(){
+        HashMap<String,Integer> top = new HashMap<String,Integer>();
+        for (Autor a : autores.values()) {
+            //System.out.println(a.getNome()+"|"+a.getArtigos());
+            //top.put(a.getNome(), a.getArtigos());
+            if (a.contaCoautores()>0){
+                String autor = a.getNome();
+                HashMap<String,Integer> co = a.coAutoresHash();
+                for(Map.Entry<String,Integer> entry : co.entrySet()) {
+                    String cnome = entry.getKey();
+                    Integer arti = entry.getValue();
+                    if (!top.containsKey(cnome+","+autor)) top.put(autor+","+cnome, arti);
+                }
+            }
+            
+        }
+        //System.out.println(top.toString());
+        //System.out.println(top.toString());
+        return top;
+    }
+    
+    public ArrayList<String> listaCoCom(String[] nomes){
+        ArrayList<String> lista = new ArrayList<String>();
+        for(Autor a : autores.values()){
+            if(a.existeListaCo(nomes)){
+                lista.add(a.getNome());
+            }
+        }
+        return lista;
     }
     
     public String toString(){

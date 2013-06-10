@@ -6,6 +6,7 @@
 package li3.java;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -87,6 +88,32 @@ public class Autor implements Serializable {
             return coautores.size();
         }
     }
+    
+    public HashMap<String,Integer> coAutoresHash() {
+        HashMap<String,Integer> lista = new HashMap<String, Integer>();
+        for (Coautores c : coautores.values()) {
+            lista.put(c.getNome(), c.getArtigos());
+        }
+        return lista;
+    }
+    
+    public ArrayList<String> listaCoautores(){
+        ArrayList<String> lista = new ArrayList<String>();
+        for(Coautores c: coautores.values()){
+            lista.add(c.getNome());
+        }
+        return lista;
+    }
+    
+    public boolean existeListaCo(String[] nomes){
+        Boolean flag = false;
+        for (int i = 0; i < nomes.length; i++) {
+            flag = this.existCoautor(nomes[i]);
+            if (flag.equals(false)) break;
+        }
+        return flag;
+    }
+        
     
     public String toString (){
         StringBuilder s = new StringBuilder();
