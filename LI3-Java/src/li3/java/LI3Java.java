@@ -376,7 +376,14 @@ public class LI3Java {
                     }
                     break;
                 case 2:
-                    
+                    ArrayList<String> linhas2 = FileInput.txtInput();
+                    int conta=0;
+                    for (int i = 0; i < linhas2.size(); i++) {
+                        if (linhas.contains(linhas2.get(i))){
+                            conta+=1;
+                        }
+                    }
+                    System.out.println("Existem "+conta+" em comum.");
                     break;
                 case 0:
                     flag = 0;
