@@ -376,7 +376,8 @@ public class LI3Java {
                     }
                     break;
                 case 2:
-                    ArrayList<String> linhas2 = FileInput.txtInput();
+                    ArrayList<String> linhas2;
+                    linhas2 = FileInput.txtInput();
                     int conta=0;
                     for (int i = 0; i < linhas2.size(); i++) {
                         if (linhas.contains(linhas2.get(i))){
