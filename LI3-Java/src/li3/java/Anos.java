@@ -67,11 +67,16 @@ public class Anos implements Serializable{
     }
     
     public int numeroAutoresComCO(){
-        int numero = 0;
+        ArrayList<String> total = new ArrayList<String>();
         for (Ano a : anos.values()){
-            numero+=a.comCoautores();
+            ArrayList<String> n_ano = a.nomesAutores();
+            
+            for (int i = 0; i < n_ano.size(); i++) {
+                Autor autor = a.getAutor(n_ano.get(i));
+                if (autor.temCoautores() && !total.contains(autor.getNome())) total.add(autor.getNome());
+            }
         }
-        return numero;
+        return total.size();
     }
     
     

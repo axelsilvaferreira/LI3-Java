@@ -81,6 +81,10 @@ public class Autor implements Serializable {
         return coautores.containsKey(coautor);
     }
     
+    public boolean temCoautores(){
+        return !coautores.isEmpty();
+    }
+    
     public int contaCoautores(){
         if (coautores.isEmpty()){ 
             return 0;
