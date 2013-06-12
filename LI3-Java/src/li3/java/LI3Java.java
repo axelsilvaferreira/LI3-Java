@@ -6,6 +6,8 @@ package li3.java;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -13,6 +15,7 @@ import java.util.TreeMap;
 import java.util.Comparator;
 import java.util.TreeSet;
 import java.util.Iterator;
+import java.util.Set;
 
 
 /**
@@ -89,11 +92,14 @@ public class LI3Java {
         
         ordenado.putAll(finalAnos);
         
+        
         /*
          * Imprime o TOP X
          */
         int k=1,topn=0;
         Integer value = 0;
+        
+        
         
         for(Map.Entry<String,Integer> entry : ordenado.entrySet()) {
                 String key = entry.getKey();
@@ -432,11 +438,13 @@ class ValueComparator implements Comparator<String> {
         // Note: this comparator imposes orderings that are inconsistent with equals.    
         @Override
         public int compare(String a, String b) {
-            if (base.get(a) >= base.get(b)) {
+            if (base.get(a) > base.get(b)) {
                 return -1;
-            } else {
+            } else if (base.get(a) < base.get(b)){
                 return 1;
-            } // returning 0 would merge keys
+            } else {
+                return a.compareTo(b);
+            }// returning 0 would merge keys
         }
 }
 
