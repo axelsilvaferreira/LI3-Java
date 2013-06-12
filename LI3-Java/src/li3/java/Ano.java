@@ -38,6 +38,9 @@ public class Ano implements Serializable {
         this.autores = autores;
     }
 
+    public String getAno(){
+        return this.ano;
+    }
     public HashMap<String, Autor> getAutores() {
         return autores;
     }
@@ -113,6 +116,7 @@ public class Ano implements Serializable {
                 i+=1;
             }
         }
+        //System.out.println(this.getAno()+"|"+i);
         return i;
     }
     
@@ -147,6 +151,26 @@ public class Ano implements Serializable {
         return top;
     }
     
+    public HashSet<String> listaDeCoautores(){
+        HashSet<String> lista = new HashSet<String>();
+        for(Autor a : autores.values()){
+            if (a.contaCoautores() != 0){
+                lista.add(a.getNome());
+            }
+        }
+        
+        return lista;
+    }
+    
+    public HashSet<String> listaSemCoautores(){
+        HashSet<String> lista = new HashSet<String>();
+        for(Autor a : autores.values()){
+            if (a.contaCoautores() == 0){
+                lista.add(a.getNome());
+            }
+        }
+        return lista;
+    }
     public ArrayList<String> listaCoCom(String[] nomes){
         ArrayList<String> lista = new ArrayList<String>();
         for(Autor a : autores.values()){

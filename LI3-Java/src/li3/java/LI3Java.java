@@ -16,6 +16,7 @@ import java.util.Comparator;
 import java.util.TreeSet;
 import java.util.Iterator;
 import java.util.Set;
+import sun.security.util.Length;
 
 
 /**
@@ -61,12 +62,15 @@ public class LI3Java {
                                 
         System.out.print("Numero para o TOP: ");
         top = ler.nextInt();
-        HashMap<String,Integer> topPorAno = new HashMap<String, Integer>();
+        HashMap<String,Integer> topPorAno;
         Ano a;
         Autor autor;
         
         for (Integer i = anoi; i <= anof ; i++) {
+            //System.out.println("|"+i.toString()+"|");
+            //System.out.println(anos.getAno(i.toString()));
             a = anos.getAno(i.toString());
+            //System.out.println(a.toString());
             topPorAno = a.topArtigos();
             
             for(Map.Entry<String,Integer> entry : topPorAno.entrySet()) {
@@ -109,7 +113,7 @@ public class LI3Java {
                 } else {
                     topn++;
                 }
-                if (k<finalAnos.size()) System.out.println(topn + "º - " + value + " :: " + key);
+                if (k<=finalAnos.size()) System.out.println(topn + "º - " + value + " :: " + key);
                 if (k==top){ break;}
                 k++;
         }
@@ -132,11 +136,20 @@ public class LI3Java {
             for(Map.Entry<String,Integer> entry : topPorAnoC.entrySet()) {
                 String nome = entry.getKey();
                 Integer artigos = entry.getValue();
+                String[] dados = nome.split(",");
+                String nomeAlt = dados[1]+","+dados[0];
                 if(finalAnosC.containsKey(nome)){
                     Integer fvalor = finalAnosC.get(nome);
+                    //System.out.println("|"+nome+"|"+fvalor+"|");
                     fvalor+=artigos;
                     finalAnosC.put(nome, fvalor);
+                } else if (finalAnosC.containsKey(nomeAlt)){
+                    Integer fvalor = finalAnosC.get(nomeAlt);
+                    //System.out.println("|"+nomeAlt+"|"+fvalor+"|");
+                    fvalor+=artigos;
+                    finalAnosC.put(nomeAlt, fvalor);
                 } else {
+                    //System.out.println("|"+nome+"|"+artigos+"|");
                     finalAnosC.put(nome, artigos);
                 }
             }
@@ -158,7 +171,7 @@ public class LI3Java {
             topn++;
             }
             String[] dados = key.split(",");
-            if (k<finalAnosC.size()) System.out.println(topn + "º - " + value + " :: " + dados[0] + " , " + dados[1]);
+            if (k<=finalAnosC.size()) System.out.println(topn + "º - " + value + " :: " + dados[0] + " , " + dados[1]);
             if (k==top){ break;}
             k++;
         }
@@ -190,11 +203,15 @@ public class LI3Java {
                 }
                 coNomes = autor.listaCoautores();
                 if(i == 0 && j.equals(anoi)) coNomesFinal.addAll(coNomes);
-                for (String s : coNomesFinal) {
+                
+                TreeSet<String> coNomesFinalCOPIA = (TreeSet<String>) coNomesFinal.clone();
+                
+                for (String s : coNomesFinalCOPIA) {
                     if (!coNomes.contains(s)){
                         coNomesFinal.remove(s);
                     }
                 }
+                
             }
         }
         
@@ -219,7 +236,7 @@ public class LI3Java {
                 //System.out.println("||||||||||||||||||"+nome[i].trim()+"||||");
                 if (ano.existeAutor(nome[i].trim())) {
                     autor = ano.getAutor(nome[i].trim());
-                }
+                }1
                 coNomes = autor.listaCoautores();
                 if (coNomeFinal.isEmpty()){
                     coNomeFinal.addAll(coNomes);
@@ -233,10 +250,16 @@ public class LI3Java {
             }
         }
         */
+        for (int i = 0; i < nome.length; i++) {
+            if(coNomesFinal.contains(nome[i].trim())){
+                coNomesFinal.remove(nome[i].trim());
+            }
+        }
         
         Iterator<String> autores = coNomesFinal.iterator();
         while(autores.hasNext()){
-            System.out.println(autores.next());
+            String n = autores.next();
+            System.out.println(n);
         }
     }
     
@@ -269,6 +292,7 @@ public class LI3Java {
                 }
             }
         }
+        Collections.sort(autoresT);
         for (int i = 0; i < autoresT.size(); i++) {
             System.out.println(autoresT.get(i));
         }    
@@ -292,31 +316,21 @@ public class LI3Java {
         
         for (int i = 0; i < linhas.size(); i++) {
             dados = trimAutorAno(linhas.get(i));
-            //System.out.println("|" + dados[dados.length-1].trim() + "|");
-            if (dados.length > 2){
-                for (int j = 0; j <= dados.length-2; j++) {
-                    for (int k = 0; k <= dados.length-2; k++) {
-                        if (j!=k) {
-                            //System.out.println(dados[dados.length-1].trim()+"|"+dados[j].trim()+"|"+dados[k].trim());
-                            anos.addAutorCoautor(dados[dados.length-1].trim(),dados[j].trim(), dados[k].trim());
-                        }
-                    }
-                    //System.out.println("CO|"+dados[dados.length-1].trim()+"|");
+            anos.addAno(dados[dados.length-1].trim());
+            //System.out.println("|"+dados[dados.length-1].trim()+"|");
+            for (int j = 0; j <= dados.length-2; j++) {
+                Ano a = anos.getAno(dados[dados.length-1].trim());
+                a.addAutor(dados[j].trim());   
+                //System.out.println("|"+dados[j].trim()+"|");
+                if(dados.length == 2) n_artigos_umautor+=1;
+            }
+            for (int j = 0; j <= dados.length-2; j++) {
+                Ano a = anos.getAno(dados[dados.length-1].trim());
+                Autor au = a.getAutor(dados[j].trim());
+                for (int k = 0; k <= dados.length-2; k++) {
+                    if(k!=j) au.addCoautor(dados[k].trim());
                 }
-            } else {
-                anos.addAutor(dados[dados.length-1].trim(), dados[0].trim());
-                //System.out.println("AA|"+dados[dados.length-1].trim()+"|");
             }
-            
-            if (statsAno.containsKey(dados[dados.length-1].trim())){
-                int valor = statsAno.get(dados[dados.length-1].trim());
-                valor+=1;
-                statsAno.put(dados[dados.length-1].trim(), valor);
-            } else {
-                statsAno.put(dados[dados.length-1].trim(), 1);
-            }
-            if (dados.length == 2) n_artigos_umautor+=1;
-            n_nomes+=(dados.length-1);
         }
         
         System.out.println("Informações do Ficheiro:\n");
@@ -401,26 +415,7 @@ public class LI3Java {
             }
         }
         
-        /*
-        anos.addAno("2013");
-        ano = anos.getAno("2013");
-        ano.addAutor("Joao Rua");
-        ano.addAutor("Joao Rua");
-        anos.addAno("2000");
-        ano2 = anos.getAno("2000");
-        ano2.addAutor("Eduardo Pereira");
-        ano2.addAutor("Joao Rua");
-        */
-        /*
-        anos.addAutorCoautor("2013", "Joao Rua", "Eduardo Pereira");
-        anos.addAutorCoautor("2013", "Joao Rua", "Miguel Barros");
-        anos.addAutorCoautor("2013", "Joao Rua", "Miguel Barros");
-        anos.addAutorCoautor("2013", "Eduardo Pereira", "Miguel Barros");
-        anos.addAutorCoautor("2012", "Eduardo Pereira", "Miguel Barros");
-        */
-        //System.out.println(anos.existeAno("2012"));
-        //ano = anos.getAno("1984");
-        //System.out.println(ano.toString());
+        
     ler.close();
     }
     
