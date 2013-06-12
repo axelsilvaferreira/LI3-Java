@@ -4,9 +4,12 @@
  */
 package li3.java;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,8 +18,7 @@ import java.util.TreeMap;
 import java.util.Comparator;
 import java.util.TreeSet;
 import java.util.Iterator;
-import java.util.Set;
-import sun.security.util.Length;
+
 
 
 /**
@@ -39,7 +41,9 @@ public class LI3Java {
     public static void menuConsultasInteractivas(){
         System.out.println("\nConsultas interactivas:\n");
         System.out.println("1 - Consultas indexadas por ano ou anos");
-        System.out.println("2.- Consultas globais especiais.");
+        System.out.println("2 - Consultas globais especiais.");
+        System.out.println("\n3 - Gravar");
+        System.out.println("4 - Carregar");
         System.out.println("\n0 - Sair");
     }
     
@@ -69,29 +73,32 @@ public class LI3Java {
         for (Integer i = anoi; i <= anof ; i++) {
             //System.out.println("|"+i.toString()+"|");
             //System.out.println(anos.getAno(i.toString()));
-            a = anos.getAno(i.toString());
-            //System.out.println(a.toString());
-            topPorAno = a.topArtigos();
+            if (anos.existeAno(i.toString())){
+                a = anos.getAno(i.toString());
+                //System.out.println(a.toString());
+                topPorAno = a.topArtigos();
             
-            for(Map.Entry<String,Integer> entry : topPorAno.entrySet()) {
-                String nome = entry.getKey();
-                Integer artigos = entry.getValue();
-                if (finalAnos.containsKey(nome)){
-                    Integer fvalor = finalAnos.get(nome);
-                    /*
-                    if (fvalor < artigos) {
+                for(Map.Entry<String,Integer> entry : topPorAno.entrySet()) {
+                    String nome = entry.getKey();
+                    Integer artigos = entry.getValue();
+                    if (finalAnos.containsKey(nome)){
+                        Integer fvalor = finalAnos.get(nome);
+                        /*
+                        if (fvalor < artigos) {
                         finalAnos.put(nome, artigos);
-                    } else {
+                        } else {
                         finalAnos.put(nome, fvalor);
+                        }
+                        */
+                        fvalor+=artigos;
+                        finalAnos.put(nome, fvalor);
+                    }else{
+                        finalAnos.put(nome, artigos);
                     }
-                    */
-                    fvalor+=artigos;
-                    finalAnos.put(nome, fvalor);
-                }else{
-                    finalAnos.put(nome, artigos);
                 }
-            }
-                
+            } else {
+                System.out.println("O Ano "+i.toString()+" não existe!!");
+            }    
         }
         
         ordenado.putAll(finalAnos);
@@ -131,27 +138,31 @@ public class LI3Java {
         System.out.print("Numero para o TOP: ");
         top = ler.nextInt();
         for (Integer i = anoi; i <= anof; i++) {
-            Ano a = anos.getAno(i.toString());
-            topPorAnoC = a.topCOArtigos();
-            for(Map.Entry<String,Integer> entry : topPorAnoC.entrySet()) {
-                String nome = entry.getKey();
-                Integer artigos = entry.getValue();
-                String[] dados = nome.split(",");
-                String nomeAlt = dados[1]+","+dados[0];
-                if(finalAnosC.containsKey(nome)){
-                    Integer fvalor = finalAnosC.get(nome);
-                    //System.out.println("|"+nome+"|"+fvalor+"|");
-                    fvalor+=artigos;
-                    finalAnosC.put(nome, fvalor);
-                } else if (finalAnosC.containsKey(nomeAlt)){
-                    Integer fvalor = finalAnosC.get(nomeAlt);
-                    //System.out.println("|"+nomeAlt+"|"+fvalor+"|");
-                    fvalor+=artigos;
-                    finalAnosC.put(nomeAlt, fvalor);
-                } else {
-                    //System.out.println("|"+nome+"|"+artigos+"|");
-                    finalAnosC.put(nome, artigos);
+            if (anos.existeAno(i.toString())){
+                Ano a = anos.getAno(i.toString());
+                topPorAnoC = a.topCOArtigos();
+                for(Map.Entry<String,Integer> entry : topPorAnoC.entrySet()) {
+                    String nome = entry.getKey();
+                    Integer artigos = entry.getValue();
+                    String[] dados = nome.split(",");
+                    String nomeAlt = dados[1]+","+dados[0];
+                    if(finalAnosC.containsKey(nome)){
+                        Integer fvalor = finalAnosC.get(nome);
+                        //System.out.println("|"+nome+"|"+fvalor+"|");
+                        fvalor+=artigos;
+                        finalAnosC.put(nome, fvalor);
+                    } else if (finalAnosC.containsKey(nomeAlt)){
+                        Integer fvalor = finalAnosC.get(nomeAlt);
+                        //System.out.println("|"+nomeAlt+"|"+fvalor+"|");
+                        fvalor+=artigos;
+                        finalAnosC.put(nomeAlt, fvalor);
+                    } else {
+                        //System.out.println("|"+nome+"|"+artigos+"|");
+                        finalAnosC.put(nome, artigos);
+                    }
                 }
+            } else {
+                System.out.println("O Ano "+i.toString()+" não existe!!");
             }
         }
         
@@ -298,7 +309,7 @@ public class LI3Java {
         }    
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
         ArrayList<String> linhas;
         String[] dados;
         Anos anos = new Anos();
@@ -405,6 +416,29 @@ public class LI3Java {
                         }
                     }
                     System.out.println("Existem "+conta+" em comum.");
+                    break;
+                    
+                case 3:
+                    try{
+                        FileOutputStream f = new FileOutputStream("publicx.obj");
+                        ObjectOutputStream os = new ObjectOutputStream(f);
+                        os.writeObject(anos);
+                        os.close();
+                        f.close();
+                    } catch (IOException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 4:
+                    try{
+                        FileInputStream f = new FileInputStream("publicx.obj");
+                        ObjectInputStream is = new ObjectInputStream(f);
+                        anos = (Anos) is.readObject();
+                        is.close();
+                        f.close();
+                    } catch (IOException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 0:
                     flag = 0;
