@@ -56,6 +56,13 @@ public class LI3Java {
         System.out.println("\n0 - Sair");
     }
     
+    public static void menuGerais(){
+        System.out.println("\nConsultas Globais Especiais:\n");
+        System.out.println("1 - Conta o numero de linhas em duplicado no ficheiro \"publicx.txt\"");
+        System.out.println("2 - Tabela com todos os autores e respectiva rede de coautores, com numero de coautores inferior a X");
+        System.out.println("\n0 - Sair");
+    }
+    
     public static void topAutores(Anos anos, Integer anoi,Integer anof) {
         HashMap<String,Integer> finalAnos = new HashMap<String, Integer>(); //
         ValueComparator bvc =  new ValueComparator(finalAnos);
@@ -309,6 +316,42 @@ public class LI3Java {
         }    
     }
     
+    public static void tabelaAutoresCoautores(Anos anos){
+        TreeMap<String,TreeSet<String>> tabela = new TreeMap<String, TreeSet<String>>();
+        TreeSet<String> listaAnos = anos.listaAnos();
+        TreeSet<String> listaAutores = anos.listaAutoresComCoaurores();
+        TreeSet<String> l;
+        Scanner ler = new Scanner(System.in);
+        int numero;
+        for(String a: listaAnos){
+            Ano ano = anos.getAno(a);
+            for(String au: listaAutores){
+                l = new TreeSet<String>();
+                if (ano.existeAutor(au)){
+                    Autor autor = ano.getAutor(au);
+                    l.addAll(autor.listaCoautores());
+                    tabela.put(au, l);
+                }
+            }
+        }
+        
+        System.out.println("Numero maximo de Coautores: ");
+        numero = ler.nextInt();
+        
+        for(Map.Entry<String,TreeSet<String>> entry : tabela.entrySet()){
+            String autor = entry.getKey();
+            TreeSet<String> coautores = entry.getValue();
+            //System.out.println("||||||||||||||||"+coautores.size()+"||||||||||");
+            if (coautores.size() > 0 && coautores.size() <= numero){
+                System.out.print(autor+": ");
+                for(String s: coautores){
+                    if(!autor.equals(s)) System.out.print(s+", ");
+                }
+                System.out.println();
+            }
+        }
+    }
+    
     public static void main(String[] args) throws ClassNotFoundException {
         ArrayList<String> linhas;
         String[] dados;
@@ -407,17 +450,24 @@ public class LI3Java {
                     }
                     break;
                 case 2:
-                    ArrayList<String> linhas2;
-                    linhas2 = FileInput.txtInput();
-                    int conta=0;
-                    for (int i = 0; i < linhas2.size(); i++) {
-                        if (linhas.contains(linhas2.get(i))){
-                            conta+=1;
-                        }
+                    menuGerais();
+                    op_menu = ler.nextInt();
+                    switch(op_menu){
+                        case 1:
+                            ArrayList<String> linhas2;
+                            linhas2 = FileInput.txtInput();
+                            int conta=0;
+                            for (int i = 0; i < linhas2.size(); i++) {
+                                if (linhas.contains(linhas2.get(i))){
+                                    conta+=1;
+                                }
+                            }
+                            System.out.println("Existem "+conta+" linhas em comum.");
+                            break;
+                        case 2:
+                            tabelaAutoresCoautores(anos);
                     }
-                    System.out.println("Existem "+conta+" em comum.");
                     break;
-                    
                 case 3:
                     try{
                         FileOutputStream f = new FileOutputStream("publicx.obj");

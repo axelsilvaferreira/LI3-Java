@@ -98,6 +98,16 @@ public class Ano implements Serializable {
         return nomes;
     }
     
+    public ArrayList<String> nomesAutoresComCoautores(){
+        ArrayList<String> nomes = new ArrayList<String>();
+        for (Autor a: autores.values()){
+            if(a.contaCoautores()>0){
+                nomes.add(a.getNome());
+            }
+        }
+        return nomes;
+    }
+    
     public int semCoautores(){
         int i =0;
         for (Autor a: autores.values()){
