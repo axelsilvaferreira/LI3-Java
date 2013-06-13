@@ -61,13 +61,7 @@ public class Anos implements Serializable{
     }
     
     public int numeroAutoresSemCO(){
-        /*
-        int numero = 0;
-        for (Ano a : anos.values()){
-            numero+=a.semCoautores();
-        }
-        return numero;
-        */
+        
         HashSet<String> lista = new HashSet<String>();
         HashSet<String> lista2 = new HashSet<String>();
         
@@ -158,6 +152,22 @@ public class Anos implements Serializable{
             list.addAll(a.nomesAutoresComCoautores());
         }
         return list;   
+    }
+    
+    public TreeSet<String> listaCoautoresDeAutorPorIntervalo(Integer anoi, Integer anof, String nome){
+        TreeSet<String> lista = new TreeSet<String>();
+        Ano ano;
+        Autor autor;
+        for (Integer i = anoi; i <= anof; i++) {
+            ano = anos.get(i.toString());
+            if (ano.existeAutor(nome)){
+                autor = ano.getAutor(nome);
+                if(autor.temCoautores()){
+                    lista.addAll(autor.listaCoautores());
+                }
+            }
+        }
+        return lista;
     }
     
     public TreeSet<String> listaAnos(){

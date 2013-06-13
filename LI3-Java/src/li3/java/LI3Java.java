@@ -90,13 +90,7 @@ public class LI3Java {
                     Integer artigos = entry.getValue();
                     if (finalAnos.containsKey(nome)){
                         Integer fvalor = finalAnos.get(nome);
-                        /*
-                        if (fvalor < artigos) {
-                        finalAnos.put(nome, artigos);
-                        } else {
-                        finalAnos.put(nome, fvalor);
-                        }
-                        */
+                        
                         fvalor+=artigos;
                         finalAnos.put(nome, fvalor);
                     }else{
@@ -199,79 +193,29 @@ public class LI3Java {
     public static void listaCoautoresComum(Anos anos,Integer anoi,Integer anof) {
         Scanner ler = new Scanner(System.in);
         String lista;
-        ArrayList<String> coNomes = new ArrayList<String>();
+        TreeSet<String> coNomes;
         String[] nome;
         Ano ano;
-        Autor autor = new Autor();
+        Autor autor;
         TreeSet<String> coNomesFinal = new TreeSet<String>();
+        TreeSet<String> coNomesFinalCOPIA = new TreeSet<String>();
         
         System.out.print("Introduza a Lista de Autores (Separados por \",\"): ");
         lista = ler.nextLine();
         nome = trimAutorAno(lista);
+        boolean flag = false;
         //Boolean flag;
-        
         for (int i = 0; i < nome.length; i++) {
-            for (Integer j = anoi; j <= anof; j++) {
-                //System.out.println(j.toString());
-                ano = anos.getAno(j.toString());
-                //System.out.println(ano.toString());
-                //System.out.println(nome[i]);
-                if (ano.existeAutor(nome[i])){
-                    autor = ano.getAutor(nome[i]);
+            if(i==0){
+                coNomes = anos.listaCoautoresDeAutorPorIntervalo(anoi, anof, nome[i].trim());
+                coNomesFinal.addAll(coNomes);
+            } else {
+                coNomes = anos.listaCoautoresDeAutorPorIntervalo(anoi, anof, nome[i].trim());
+                coNomesFinalCOPIA.addAll(coNomesFinal);
+                for(String s: coNomesFinalCOPIA){
+                    if (!coNomes.contains(s)) coNomesFinal.remove(s);
                 }
-                coNomes = autor.listaCoautores();
-                if(i == 0 && j.equals(anoi)) coNomesFinal.addAll(coNomes);
-                
-                TreeSet<String> coNomesFinalCOPIA = (TreeSet<String>) coNomesFinal.clone();
-                
-                for (String s : coNomesFinalCOPIA) {
-                    if (!coNomes.contains(s)){
-                        coNomesFinal.remove(s);
-                    }
-                }
-                
-            }
-        }
-        
-        
-        
-        /*
-        for (Integer i = anoi; i < anof; i++) {
-            ano = anos.getAno(i.toString());
-            coNomes = ano.listaCoCom(nome);
-            for (int j = 0; j < coNomes.size(); j++) {
-                if(!coNomesFinal.contains(coNomes.get(j))){
-                    coNomesFinal.add(coNomes.get(j));
-                }
-            }
-        }
-        */
-        //System.out.println(nome.length);
-        /*
-        for (int i = 0; i < nome.length; i++) {
-            for (Integer j = anoi; j <= anof; j++) {
-                ano = anos.getAno(j.toString());
-                //System.out.println("||||||||||||||||||"+nome[i].trim()+"||||");
-                if (ano.existeAutor(nome[i].trim())) {
-                    autor = ano.getAutor(nome[i].trim());
-                }1
-                coNomes = autor.listaCoautores();
-                if (coNomeFinal.isEmpty()){
-                    coNomeFinal.addAll(coNomes);
-                } else {
-                    for (int k = 0; k < coNomeFinal.size(); k++) {
-                        if (!coNomes.contains(coNomeFinal.get(k))){
-                            coNomeFinal.remove(coNomeFinal.get(k));
-                        }
-                    }
-                }
-            }
-        }
-        */
-        for (int i = 0; i < nome.length; i++) {
-            if(coNomesFinal.contains(nome[i].trim())){
-                coNomesFinal.remove(nome[i].trim());
-            }
+            }    
         }
         
         Iterator<String> autores = coNomesFinal.iterator();
