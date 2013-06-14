@@ -80,44 +80,44 @@
 %%%%%%%%%%%%%%%%%%%%  ABSTRACT  %%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 	
-	Foi desenvolvido um programa no âmbito da U.C. de Laboratório de Informática III , capaz de utilizar o conteúdo processado pelo pelo anterior programa desenvolvido em C, também nesta UC, capaz de ler um ficheiro contendo um conjunto de autores e respetivos co-autores, e responder a alguns queries sobre estes dados. Estes dados de autorias, e co-autorias são retirados do website \href{www.dblp.org}{\underline{DBLP}}.
+	Foi desenvolvido um programa no âmbito da U.C. de Laboratório de Informática III , capaz de utilizar o conteúdo processado pelo pelo anterior programa desenvolvido em C, também nesta UC, capaz de ler um ficheiro contendo um conjunto de autores e respetivos co-autores, e responder a alguns queries interativos sobre estes dados. Estes dados de autorias, e co-autorias são retirados do website \href{www.dblp.org}{\underline{DBLP}}.
 		
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%  INTRODUCAO  %%%%%%%%%%%%%%%%%%%%%%
 \section{Introdução}
-	No âmbito da unidade curricular Laboratórios de Informática III foi proposta a realização de um projeto com 3 etapas.
-	A primeira incidiu no parsing e filtragem de um conjunto de entradas de ficheiros de texto com uma sintaxe definida, em que cada linha contém uma entrada correspondente a uma publicação em revista ou conferência. Procurou-se, então, criar um programa que abra um ficheiro "lista.txt" que contém todos os ficheiros a serem processados, em cada linha deste ficheiro corresponde ao nome de um ficheiro a ser processado. Abra cada um desses ficheiros, lendo linha a linha cada entrada, processe essa entrada e consoante seja ou não válida, incremente os contadores correspondentes e finalmente imprima dois ficheiros em que o primeiro contém a lista de cada ficheiro processado seguido do número de rejeitados e o segundo os contadores do número de total de processados, rejeitados, artigos, conferencias e revistas.
-	A segunda etapa consiste na  impressão de um ficheiro de estatísticas mais detalhado, que detalha o número de artigos existentes, por ano e por número de autores, o número de artigos existentes por número de autores, para cada intervalo de anos dado, o número de artigos existente, e para um dado ano, a percentagem de artigos para cada número de autores.
-	A última fase incidiu no teste de performance e otimização da estrutura do programa e na implementação de uma estrutura de co-autores que permite responder a algumas queries sobre co-autoria.
+	No âmbito da unidade curricular Laboratórios de Informática III foi proposta a realização de um projeto que dá continuidade ao projeto anteriormente desenvolvido em C nesta mesma UC. Este novo projeto conta com essencialmente duas partes.
+	A primeira diz respeito á leitura de dados de memória secundária e população de estruturas de dados em memória central, gravação destas estruturas de dados em memória persistente em modo binário, bem como a criação de alguns queries de forma a permitir uma consulta interativa aos dados.
+	Desenvolveram-se ainda alguns métodos que permitem consultas sobre as estruturas de dados.
+	A Segunda parte prevê o teste de performance do código e respetivas estruturas de dados criados na 1ª parte, relativamente a estruturas de dados alternativas.
+	De forma a facilitar esta segunda parte, o grupo teve o cuidado de criar uma interface cada vez que foi utilizada uma estrutura de dados do Java.Collections, de forma a permitir alterar as estruturas utilizadas alterando apenas, e se necessário, esta interface.
 	
+		
 	%%%%%%%%%%%%%%%%%%     ESTRUTUA DO RELATORIO     %%%%%%%%%%%%%%
 	\subsection{Estrutura do Relatório}
-		Este relatório inicia-se com uma capa, incluindo o título do projeto, a data, a identificação do autor e da equipa docente que acompanhou o projeto. Segue-se o Índice, o Abstract que resume o projeto, a Introdução ao mesmo (onde se explicita o objetivo a atingir) e a Estrutura do Relatório. O Desenvolvimento tem como secções os tipos e estruturas de dados, cada uma das tarefas Fase 1, Fase 2A e Fase 2B. Por fim apresentam-se a Conclusão e os anexos.
+		Este relatório inicia-se com uma capa, incluindo o título do projeto, a data, a identificação dos autores e da equipa docente que acompanhou o projeto. Segue-se o Índice, o Abstract que resume o projeto, a Introdução ao mesmo (onde se explicita o objetivo a atingir) e a Estrutura do Relatório. 
+		
+	
+	%%%%   <---------------CONTINUAR
+		%%% BLA BLA BLA BLA BLA
+		%O Desenvolvimento tem como secções os tipos e estruturas de dados, cada uma das tarefas Fase 1, Fase 2A e Fase 2B. Por fim apresentam-se a Conclusão e os anexos.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%      ESTRUTURAS & TIPOS DE DADOS     %%%%%%%%%%%%%%%%
-\section{Tipos de Dados e Estruturas de Dados}
+\section{Classes Criadas e Estruturas de Dados}
 		%%%%%%%%%%%%%%%%%%     TIPOS DE DADOS     %%%%%%%%%%%%%%%%%
-		\subsection{Tipos de Dados}
-		Foram utilizados os seguintes tipos de dados para transportar informação do fluxo do programa através de retornos de funções.
+		\subsection{Classes Criadas}
+		Na criação deste programa foram desenvolvidas as seguintes classes:
 		\begin{itemize}
-			\item struct sStats - é utilizada pelo parser para após validar uma linha deveolver ao main o conteúdo útil dessa entrada. 
+			\item Anos - Esta classe armazena toda a estrutura de dados, contém um Uma coleção (HashMap) com os os seguintes campos
 				\begin{verbatim}
-					typedef struct sStats
-					{   char * nomes;              // buffer com os autores
-					    int nAutores; 	            // número de autores
-					    int ano;	                  // Ano
-					} Stats;
+					private TreeMap<String,Ano> anos; 
 				\end{verbatim}
-			\item struct sList - Utilizado como nodo da lista na estrutura de dados.
+			\item Ano - Classe criada para guardar o conteúdo de cada Ano, contém uma String com o nome do ano e um HashMap com os Autores
 				\begin{verbatim}
-					struct sList
-					{   int nAut;                   // número de Autores.
-					    int nArt;                   // número de Artigos.
-					    struct sList * seg;         // Nodo seguinte
-					} List;
+					private String ano;
+    					private HashMap<String,Autor> autores;
 				\end{verbatim}
 		\end{itemize}
 		\subsection{Macros}	
