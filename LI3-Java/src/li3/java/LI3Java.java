@@ -403,13 +403,9 @@ public class LI3Java {
                         case 1:
                             ArrayList<String> linhas2;
                             linhas2 = FileInput.txtInput();
-                            int conta=0;
-                            for (int i = 0; i < linhas2.size(); i++) {
-                                if (linhas.contains(linhas2.get(i))){
-                                    conta+=1;
-                                }
-                            }
-                            System.out.println("Existem "+conta+" linhas em comum.");
+                            TreeSet<String> linhas2set = new TreeSet<String>();
+                            linhas2set.addAll(linhas2);
+                            System.out.println("\nExistem "+(linhas.size()-linhas2set.size())+ " Linhas Duplicadas!");
                             break;
                         case 2:
                             tabelaAutoresCoautores(anos);
