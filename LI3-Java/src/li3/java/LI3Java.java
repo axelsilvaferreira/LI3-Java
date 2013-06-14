@@ -63,6 +63,19 @@ public class LI3Java {
         System.out.println("\n0 - Sair");
     }
     
+    public static void menuCarregar(){
+        System.out.println("\nCarregar de uma das seguintes opções:\n");
+        System.out.println("1 - Carregar dados de ficheiro um Ficheiro Texto");
+        System.out.println("2 - Carregar dados de ficheiro um Ficheiro ObjectStream");
+        System.out.println("\n0 - Sair");
+    }
+    public static void menuCarregarFicheiro(){
+        System.out.println("\nCarregar de uma das seguintes opções:\n");
+        System.out.println("1 - publicx");
+        System.out.println("2 - Outro");
+        System.out.println("\n0 - Sair");
+    }
+   
     public static void topAutores(Anos anos, Integer anoi,Integer anof) {
         HashMap<String,Integer> finalAnos = new HashMap<String, Integer>(); //
         ValueComparator bvc =  new ValueComparator(finalAnos);
@@ -292,6 +305,10 @@ public class LI3Java {
         }
     }
     
+    public static void carrear(ArrayList<String> linhas){
+        
+    }
+    
     public static void main(String[] args) throws ClassNotFoundException {
         ArrayList<String> linhas;
         String[] dados;
@@ -311,6 +328,8 @@ public class LI3Java {
         for (int i = 0; i < linhas.size(); i++) {
             dados = trimAutorAno(linhas.get(i));
             anos.addAno(dados[dados.length-1].trim());
+            n_nomes+=dados.length-2;
+            
             if (statsAno.containsKey(dados[dados.length-1].trim())){
                 int valor = statsAno.get(dados[dados.length-1].trim());
                 valor+=1;
@@ -418,19 +437,62 @@ public class LI3Java {
                         os.writeObject(anos);
                         os.close();
                         f.close();
+                        System.out.println("\nGuardado!");
                     } catch (IOException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case 4:
-                    try{
-                        FileInputStream f = new FileInputStream("publicx.obj");
-                        ObjectInputStream is = new ObjectInputStream(f);
-                        anos = (Anos) is.readObject();
-                        is.close();
-                        f.close();
-                    } catch (IOException e) {
-                        System.out.println(e.getMessage());
+                    menuCarregar();
+                    op_menu = ler.nextInt();
+                    switch(op_menu){
+                        case 1:
+                            menuCarregarFicheiro();
+                            op_menu = ler.nextInt();
+                            switch(op_menu) {
+                                case 1:
+                                    linhas = FileInput.txtInput();
+                                    //carregar(linhas);
+                                    break;
+                                case 2:
+                                    String nome_ficheiro;
+                                    System.out.print("\nIntroduza o nome do ficheiro: ");
+                                    nome_ficheiro = ler.next();
+                                    linhas = FileInput.txtInput(nome_ficheiro);
+                                    //carregar(linhas);
+                            }   
+                        case 2:
+                            menuCarregarFicheiro();
+                            op_menu = ler.nextInt();
+                            switch(op_menu){
+                                case 1:
+                                    try{
+                                        FileInputStream f = new FileInputStream("publicx.obj");
+                                        ObjectInputStream is = new ObjectInputStream(f);
+                                        anos = (Anos) is.readObject();
+                                        is.close();
+                                        f.close();
+                                        System.out.println("\nCarregado!");
+                                    } catch (IOException e) {
+                                        System.out.println(e.getMessage());
+                                    }
+                                    break;
+                                case 2:
+                                    String nome_ficheiro;
+                                    System.out.print("\nIntroduza o nome do ficheiro: ");
+                                    nome_ficheiro = ler.next();
+                                    try{
+                                        FileInputStream f = new FileInputStream(nome_ficheiro);
+                                        ObjectInputStream is = new ObjectInputStream(f);
+                                        anos = (Anos) is.readObject();
+                                        is.close();
+                                        f.close();
+                                        System.out.println("\nCarregado!");
+                                    } catch (IOException e) {
+                                        System.out.println(e.getMessage());
+                                    }
+                                    break;
+                            }
                     }
                     break;
                 case 0:

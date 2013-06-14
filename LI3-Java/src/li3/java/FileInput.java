@@ -29,6 +29,18 @@ public class FileInput {
         return linhas;
     }
     
+    public static ArrayList<String> txtInput (String nome_ficheiro){
+        ArrayList<String> linhas = new ArrayList<String> ();
+        Scanner fichScan = null;
+        try {
+            fichScan = new Scanner(new FileReader(nome_ficheiro));
+            fichScan.useDelimiter(System.getProperty("line.separator"));
+            while (fichScan.hasNext()) linhas.add(fichScan.next());
+        }
+        catch (IOException e) { System.out.println(e.getMessage()); }
+        return linhas;
+    }
+    
     public static String nomeFicheiro(){
         return ficheiro;
     }
