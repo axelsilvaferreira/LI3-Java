@@ -6,7 +6,6 @@ package li3.java;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-//import java.util.HashMap;
 import java.util.HashSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -87,6 +86,16 @@ public class Anos implements Serializable{
     }
     
     public int numeroAutoresComCO(){
+        HashSet<String> listaCOM = new HashSet<String>();
+        HashSet<String> listaSEM = new HashSet<String>();
+        
+        for (Ano a : anos.values()){
+            listaCOM.addAll(a.listaDeCoautores());
+            listaSEM.addAll(a.listaSemCoautores());
+        }
+        listaCOM.removeAll(listaSEM);
+        return listaCOM.size();
+        /*
         HashSet<String> lista = new HashSet<String>();
         for (Ano a : anos.values()){
             HashSet<String> nomes_ano = a.listaDeCoautores();
@@ -95,6 +104,7 @@ public class Anos implements Serializable{
             }
         }
         return lista.size();
+        */
     }
     
     
@@ -183,6 +193,10 @@ public class Anos implements Serializable{
         return lista;
     }
     */
+    
+    public void limpar(){
+        anos.clear();
+    }
     
     public TreeSet<String> listaAnos(){
         TreeSet<String> list = new TreeSet<String>();

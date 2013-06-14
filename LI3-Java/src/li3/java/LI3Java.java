@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -328,7 +327,7 @@ public class LI3Java {
         for (int i = 0; i < linhas.size(); i++) {
             dados = trimAutorAno(linhas.get(i));
             anos.addAno(dados[dados.length-1].trim());
-            n_nomes+=dados.length-2;
+            n_nomes+=dados.length-1;
             
             if (statsAno.containsKey(dados[dados.length-1].trim())){
                 int valor = statsAno.get(dados[dados.length-1].trim());
@@ -363,8 +362,8 @@ public class LI3Java {
         System.out.println("\nNumeros Gerais:\n");
         System.out.println("Numero Total de Autores: " + anos.numeroAutoresTotal());
         System.out.println("Numero de Arquivos com um unico Autor: " + n_artigos_umautor);
-        System.out.println("Numero de Autores sem Coautores: " + anos.numeroAutoresSemCO());
-        System.out.println("Numero de Autores com Coautores: " + anos.numeroAutoresComCO());
+        System.out.println("Numero de Autores que SEMPRE Publicam a Solo: " + anos.numeroAutoresSemCO());
+        System.out.println("Numero de Autores que NUNCA Publicam a Solo: " + anos.numeroAutoresComCO());
         
         System.out.println("\nNumero de Artigos por Ano:\n");
         for(Map.Entry<String,Integer> entry : statsAno.entrySet()) {
@@ -452,7 +451,34 @@ public class LI3Java {
                             switch(op_menu) {
                                 case 1:
                                     linhas = FileInput.txtInput();
-                                    //carregar(linhas);
+                                    anos.limpar();
+                                    for (int i = 0; i < linhas.size(); i++) {
+                                        dados = trimAutorAno(linhas.get(i));
+                                        anos.addAno(dados[dados.length-1].trim());
+                                        n_nomes+=dados.length-1;
+            
+                                        if (statsAno.containsKey(dados[dados.length-1].trim())){
+                                            int valor = statsAno.get(dados[dados.length-1].trim());
+                                            valor+=1;
+                                            statsAno.put(dados[dados.length-1].trim(), valor);
+                                        } else {
+                                            statsAno.put(dados[dados.length-1].trim(), 1);
+                                        }
+            
+                                        for (int j = 0; j <= dados.length-2; j++) {
+                                            Ano a = anos.getAno(dados[dados.length-1].trim());
+                                            a.addAutor(dados[j].trim());   
+                                            
+                                            if(dados.length == 2) n_artigos_umautor+=1;
+                                        }
+                                        for (int j = 0; j <= dados.length-2; j++) {
+                                            Ano a = anos.getAno(dados[dados.length-1].trim());
+                                            Autor au = a.getAutor(dados[j].trim());
+                                            for (int k = 0; k <= dados.length-2; k++) {
+                                                if(k!=j) au.addCoautor(dados[k].trim());
+                                            }
+                                        }
+                                    }
                                     break;
                                 case 2:
                                     String nome_ficheiro;
