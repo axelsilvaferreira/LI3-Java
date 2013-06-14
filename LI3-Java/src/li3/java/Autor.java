@@ -8,6 +8,7 @@ package li3.java;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  *
@@ -108,6 +109,7 @@ public class Autor implements Serializable {
         }
         return lista;
     }
+    
     
     public boolean existeListaCo(String[] nomes){
         Boolean flag = false;

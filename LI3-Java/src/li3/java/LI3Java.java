@@ -211,6 +211,7 @@ public class LI3Java {
                 coNomesFinal.addAll(coNomes);
             } else {
                 coNomes = anos.listaCoautoresDeAutorPorIntervalo(anoi, anof, nome[i].trim());
+                coNomesFinalCOPIA.clear();
                 coNomesFinalCOPIA.addAll(coNomesFinal);
                 for(String s: coNomesFinalCOPIA){
                     if (!coNomes.contains(s)) coNomesFinal.remove(s);
@@ -226,38 +227,33 @@ public class LI3Java {
     }
     
     public static void listaAutoresInt(Anos anos,Integer anoi, Integer anof) {
-        Ano a = anos.getAno(anoi.toString());
-        Integer tamanho = a.numeroAutores();
-        Integer anoM = anoi;
-        for (Integer h=anoi+1; h<=anof; h++){
-            a = anos.getAno(h.toString());
-            if (tamanho > a.numeroAutores()){
-                tamanho = a.numeroAutores();
-                anoM = h;
-            }
-        }
         
-        ArrayList<String> autoresT = new ArrayList<String>();
-        a = anos.getAno(anoM.toString());
-        autoresT = a.nomesAutores();
+        TreeSet<String> lista = new TreeSet<String>();
+        TreeSet<String> listaT = new TreeSet<String>();
+        TreeSet<String> listaTCOPIA = new TreeSet<String>();
         
-        for (Integer i=anoi; i<=anof; i++){
-            if (i != anoM){
-                a = anos.getAno(i.toString());
-                ArrayList<String> autoresA = new ArrayList<String>();
-                autoresA = a.nomesAutores();
-                for (int j = 0; j < autoresT.size(); j++) {
-                    if (!autoresA.contains(autoresT.get(j))){
-                        //System.out.println("NÂO EXISTE");
-                        autoresT.remove(autoresT.get(j));
+        Ano ano;
+        
+        for (Integer i = anoi; i <= anof; i++) {
+            if (i.equals(anoi)){
+                ano = anos.getAno(i.toString());
+                listaT.addAll(ano.listaAutores());
+            } else {
+                ano = anos.getAno(i.toString());
+                lista = ano.listaAutores();
+                listaTCOPIA.clear();
+                listaTCOPIA.addAll(listaT);
+                for(String s: listaTCOPIA){
+                    if (!lista.contains(s)){
+                        listaT.remove(s);
                     }
                 }
             }
         }
-        Collections.sort(autoresT);
-        for (int i = 0; i < autoresT.size(); i++) {
-            System.out.println(autoresT.get(i));
-        }    
+        
+        for (String s:listaT){
+            System.out.println(s);
+        }
     }
     
     public static void tabelaAutoresCoautores(Anos anos){
@@ -315,6 +311,13 @@ public class LI3Java {
         for (int i = 0; i < linhas.size(); i++) {
             dados = trimAutorAno(linhas.get(i));
             anos.addAno(dados[dados.length-1].trim());
+            if (statsAno.containsKey(dados[dados.length-1].trim())){
+                int valor = statsAno.get(dados[dados.length-1].trim());
+                valor+=1;
+                statsAno.put(dados[dados.length-1].trim(), valor);
+            } else {
+                statsAno.put(dados[dados.length-1].trim(), 1);
+            }
             //System.out.println("|"+dados[dados.length-1].trim()+"|");
             for (int j = 0; j <= dados.length-2; j++) {
                 Ano a = anos.getAno(dados[dados.length-1].trim());

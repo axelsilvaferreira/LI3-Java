@@ -170,6 +170,20 @@ public class Anos implements Serializable{
         return lista;
     }
     
+    /*
+    public TreeSet<String> listaAutoresPorIntervalo(Integer anoi, Integer anof){
+        TreeSet<String> lista = new TreeSet<String>();
+        TreeSet<String> auNomes = new TreeSet<String>();
+        Ano ano;
+        Autor autor;
+        for (Integer i = anoi; i <= anof; i++) {
+            ano = anos.get(i.toString());
+            lista.addAll(ano.listaAutores());
+        }
+        return lista;
+    }
+    */
+    
     public TreeSet<String> listaAnos(){
         TreeSet<String> list = new TreeSet<String>();
         

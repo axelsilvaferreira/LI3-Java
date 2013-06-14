@@ -9,7 +9,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  *
@@ -187,6 +189,14 @@ public class Ano implements Serializable {
             if(a.existeListaCo(nomes)){
                 lista.add(a.getNome());
             }
+        }
+        return lista;
+    }
+    
+    public TreeSet<String> listaAutores(){
+        TreeSet<String> lista = new TreeSet<String>();
+        for (Autor s : autores.values()) {
+            lista.add(s.getNome());
         }
         return lista;
     }
