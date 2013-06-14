@@ -105,65 +105,64 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%      ESTRUTURAS & TIPOS DE DADOS     %%%%%%%%%%%%%%%%
-\section{Classes Criadas e Estruturas de Dados}
+\section{Classes e Estruturas de Dados}
 		%%%%%%%%%%%%%%%%%%     TIPOS DE DADOS     %%%%%%%%%%%%%%%%%
 		\subsection{Classes Criadas}
-		Na criação deste programa foram desenvolvidas as seguintes classes:
+		
+		
+		Na criação deste programa foram desenvolvidas algums classes
+		
 		\begin{itemize}
-			\item Anos - Esta classe armazena toda a estrutura de dados, contém um Uma coleção (HashMap) com os os seguintes campos
+			\item Anos - Esta classe armazena toda a estrutura de dados. Contém um TreeMap em que são inseridos todos os anos. Cada ano é inserido, utilizando como chave a String contendo a numeração do ano.
+			A escolha do TreeMap deveu-se ao facto de manter a ordem do ano. Esta ordem facilita a impressão e travessia ordenada necessária para algumas queries.
 				\begin{verbatim}
 					private TreeMap<String,Ano> anos; 
 				\end{verbatim}
-			\item Ano - Classe criada para guardar o conteúdo de cada Ano, contém uma String com o nome do ano e um HashMap com os Autores
+			\item Ano - Classe criada para guardar o conteúdo de cada Ano, contém uma String com o nome do ano e um HashMap com os Autores. Cada autor é inserido utilizando como chave a String com o nome do mesmo.
+			A utilização do HashMap deve-se ao facto de não haver vantagem associada á ordem de armazenamento.
 				\begin{verbatim}
 					private String ano;
-    					private HashMap<String,Autor> autores;
+					private HashMap<String,Autor> autores;
 				\end{verbatim}
-		\end{itemize}
-		\subsection{Macros}	
-		Estas macros foram utilizadas para facilitar a criação e manutenção do programa, bem como para facilitar a compreensão do mesmo. Desta forma, os seguintes tipos foram definidos.
-			\begin{itemize} 
-				\item TRUE 1 - Representa o valor boleano verdadeiro e corresponde ao valor 1 utilizado pelo compilador.
-				\item FALSE 0 - Análogo ao anterior para o valor falso (0).
-				\item MAX\_XXXX - Valores para inicialização de valores como dimensão máxima ou dimensão inicial de arrays ou buffers.
-				\item DEBUG\_MODE X - X toma um valor inteiro de forma a activar vários níveis do modo de debugging, que permite mostrar informação respeitante ao debugging ( como pr. ex. mostrar printf() ), em que cada nível diz respeito a debugging de partes diferentes de cada módulo do programa.
-				\item MAX\_FILE X - X representa o número máximo de ficheiros com que o módulo fread pode trabalhar em simultâneo. Este valor é alterado na interface.
+			\item Autor - Classe criada para guardar o nome do Autor, numero de publicações, e rede de co-autores. Esta última é armazenada num HashMap de co-autores. Cada co-autor é inserido utilizando como chave a String com o nome do mesmo.
+			A utilização do HashMap deve-se ao facto de não haver vantagem associada á ordem de armazenamento.
+				\begin{verbatim}
+					private String nome;
+					private int artigos;
+					private HashMap<String,Coautores> coautores;
+				\end{verbatim}
+			\item Coautor - Classe criada para guardar o conteúdo de cada co-autor, resumindo-se ao nome e numero de artigos publicados em comum com o respetivo autor.
+				\begin{verbatim}
+					private String nome;
+					private int artigos;
+				\end{verbatim}
+			\item FileInput - Esta classe faz todo o parsing e leitura dos dados de ficheiros com que posteriormente as estruturas de dados são povoadas. Contém apenas como variável de classe o nome do ficheiro que deve ler sempre.
+			Contém ainda um método de classe que devolve o nome do ficheiro.
+			Bem como dois métodos que devolvem o conteúdo dos ficheiros.
+				\begin{verbatim}
+					public static final String ficheiro ="publicx.txt";			
+				\end{verbatim}
 
-			\end{itemize}
-		
-		%%%%%%%%%%%%%%%%%%     ESTRUTUAS DE DADOS     %%%%%%%%%%%%%%
-		\subsection{Estruturas de Dados}
-		
-		\includegraphics[width=\textwidth]{Estrutura.jpg}
-		A estrutura de dados escolhida para armazenar os dados processados foi um Array de Listas Ligadas. Inicialmente este array tinha 100 posições possíveis para anos, isto porque dado o contexto do problema seria suficiente(dado que a primeira publicação datava de 1936). Contudo foi redimensionado para 3000 posições, ocupando cerca de 24KB de memória, uma dimensão ainda assim razoável dado o contexto do problema, isto devido á existência, nos ficheiros de teste, de datas de publicações fictícias do ano 1300. 
-		O ano corresponde ao índice do array, que é calculado retirando o ano inicial ao ano em questão e somando 1. O índice 0 foi reservado para manter contadores totais para facilitar a pesquisa eficiente por número de artigos.
-		Cada nodo do array tem um apontador para uma lista ligada. Estas listas ligadas têm 2 inteiros um que guarda o \#Autores que publicaram, o outro o número de artigos.
-		A razão pela qual esta estrutura foi escolhida deve-se á simplicidade de implementação bem como á vantagem em performance relativamente á utilização de apenas uma lista ligada.
-		Sabendo que o acesso ao array é constante, e que os artigos se encontram relativamente bem distribuídos por ano. O acesso ás sub-listas ligadas de um determinado ano é constante. Sabendo também que a distribuição de artigos por número de autor se encontra entre as co-autorias de 1 a 20 elementos, conclui-se que esta lista nunca será muito grande, garantindo assim pouca penalização nos acessos á memória (relativamente a uma alternativa implementada apenas em listas ligadas). 
-		
+		\end{itemize}
+				
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%     FASE 1     %%%%%%%%%%%%%%%%%%%%
-\section{Fase 1}
-		A primeira fase incidiu na criação de um programa capaz de ler um ficheiro	lista.txt, e para cada linha deste ficheiro, invocar um módulo separado "Parser" que abria e processava o ficheiro cujo nome correspondia á linha lida, armazenando os resultados estatísticos no próprio módulo. 
-		Finalmente, no modulo main, era invocada uma função da interface do módulo parser que imprimia os ficheiros D e E com o respetivo conteúdo.
-		
+%%%%%%%%%%%%%%%%%%%%%%   Consultas Dados  70%      %%%%%%%%%%%%%%%%%%%%
+\section{Consultas Estatísticas}
+	\subsection{Dados do último ficheiro lido}
+		Quando o ficheiro é lido, é apresentado no ecrã o nome do ficheiro, seguido do número total de artigos, e número total de nomes lidos, número total de nomes distintos bem como o intervalo fechado de anos em que os artigos foram lidos.
+		É ainda apresentada alguma informação respeitante aos dados atuais da estrutura de dados, nomeadamente nº total de autores, nº total de artigos, de um só autor, e nº de autores que apenas publicaram a solo.
+		Finalmente é ainda apresentada toda a sequência ordenada de anos em que
+	\subsection{Consultas Interativas}
+\section{Consultas Interativas}
+	\subsection{}				
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%     FASE 2A     %%%%%%%%%%%%%%%%%%%%
-\section{Fase 2A}
+%%%%%%%%%%%%%%%%%%%%%%     Mediadas de Performance 30%    %%%%%%%%%%%%%%%%%%%%
+\section{Medidas de Performance}
 
 		Nesta fase foi efetuado o refactoring e implementado o buffer dinâmico. Garantindo-se desta forma que o fluxo do programa é centrado no main e que o buffer tem sempre tamanho suficiente para ler uma linha.
 		
 		
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%     FASE 2B     %%%%%%%%%%%%%%%%%%%%%	
-\section{Fase 2B}
-		
-		Para esta fase foi reservado o índice 0 do array de anos. Este índice contém um apontador para uma lista ligada de número de autores e número de artigos correspondentes, em tudo semelhante ás outras, com a particularidade desta lista conter o total de \#artigos para cada \#Autores sendo que a entrada com o \#Autores 0 tem o \#Artigos total de toda a estrutura.
-		Foi também introduzido um primeiro nodo em cada lista com \#Autores 0, de forma a garantir um contador do total de artigos para um determinado ano, com o intuito de facilitar e tornar mais eficiente o o cálculo das percentagens bem como o intervalo de anos por \#Artigos para criação do Ficheiro G.
-		O refactoring alterou o programa, garantindo que o fluxo do mesmo passava pelo main. Como á partida parece evidente, devia ter havido uma perda na performance uma vez que todo o conteúdo é transportado entre módulos através do main, em vez de ser acedido diretamente. Contudo e após medições de tempos conclui-se que houve um ganho ligeiro na performance.
-		Dado que a estrutura não cresce muito em tamanho á medida que o input aumenta uma vez que são apenas incrementadas as variáveis já contidas na estrutra, o tempo de procura ou impressão do ficheiro G na estrutura para valores sucessivamente maiores do input é constante.
-		\includegraphics[width=.5\textwidth]{terminal}\\
 		
 		% ANALISE DO TEMPO DE EXECUÇÂO MC - PC - CM
 
