@@ -60,7 +60,16 @@ public class Anos implements Serializable{
     }
     
     public int numeroAutoresSemCO(){
+        HashSet<String> listaSEM = new HashSet<String>();
+        HashSet<String> listaCOM = new HashSet<String>();
         
+        
+        for (Ano a : anos.values()){
+            listaCOM.addAll(a.listaDeCoautores());
+            listaSEM.addAll(a.listaSemCoautores());
+        }
+        listaSEM.removeAll(listaCOM);
+        return listaSEM.size();/*
         HashSet<String> lista = new HashSet<String>();
         HashSet<String> lista2 = new HashSet<String>();
         
@@ -83,6 +92,8 @@ public class Anos implements Serializable{
         }
         
         return lista.size();
+    
+        */ 
     }
     
     public int numeroAutoresComCO(){

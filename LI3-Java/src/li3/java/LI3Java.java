@@ -485,8 +485,37 @@ public class LI3Java {
                                     System.out.print("\nIntroduza o nome do ficheiro: ");
                                     nome_ficheiro = ler.next();
                                     linhas = FileInput.txtInput(nome_ficheiro);
-                                    //carregar(linhas);
-                            }   
+                                    anos.limpar();
+                                    for (int i = 0; i < linhas.size(); i++) {
+                                        dados = trimAutorAno(linhas.get(i));
+                                        anos.addAno(dados[dados.length-1].trim());
+                                        n_nomes+=dados.length-1;
+            
+                                        if (statsAno.containsKey(dados[dados.length-1].trim())){
+                                            int valor = statsAno.get(dados[dados.length-1].trim());
+                                            valor+=1;
+                                            statsAno.put(dados[dados.length-1].trim(), valor);
+                                        } else {
+                                            statsAno.put(dados[dados.length-1].trim(), 1);
+                                        }
+            
+                                        for (int j = 0; j <= dados.length-2; j++) {
+                                            Ano a = anos.getAno(dados[dados.length-1].trim());
+                                            a.addAutor(dados[j].trim());   
+                                            
+                                            if(dados.length == 2) n_artigos_umautor+=1;
+                                        }
+                                        for (int j = 0; j <= dados.length-2; j++) {
+                                            Ano a = anos.getAno(dados[dados.length-1].trim());
+                                            Autor au = a.getAutor(dados[j].trim());
+                                            for (int k = 0; k <= dados.length-2; k++) {
+                                                if(k!=j) au.addCoautor(dados[k].trim());
+                                            }
+                                        }
+                                    }
+                                    break;
+                            }
+                            break;
                         case 2:
                             menuCarregarFicheiro();
                             op_menu = ler.nextInt();
