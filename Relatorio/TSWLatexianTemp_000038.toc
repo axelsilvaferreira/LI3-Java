@@ -10,4 +10,3 @@
 \contentsline {subsection}{\numberline {4.1}}{4}{subsection.4.1}
 \contentsline {section}{\numberline {5}Medidas de Performance}{4}{section.5}
 \contentsline {section}{\numberline {6}Conclus\~ao}{4}{section.6}
-\contentsline {section}{\numberline {7}JavaDoc????????????????????????????}{4}{section.7}
