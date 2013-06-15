@@ -162,114 +162,17 @@
 
 		Nesta fase foi efetuado o refactoring e implementado o buffer dinâmico. Garantindo-se desta forma que o fluxo do programa é centrado no main e que o buffer tem sempre tamanho suficiente para ler uma linha.
 		
-		
-		
-		% ANALISE DO TEMPO DE EXECUÇÂO MC - PC - CM
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%     Modularidade     %%%%%%%%%%%%%%%%%%%%			
-\section{Modularidade}
-			Após a primeira entrega, de forma a garantir a ocultação de dados e da implementação, a abstração de dados, o encapsulamento e alguma independência contextual, a arquitetura do programa sofreu um processo de refactoring tendo sido reformulados e criados novos módulos. Em cada módulo, os dados foram declarados como "static" tendo sido criados interfaces para mediar o manuseamento dos mesmos. Isto garante independência contextual, ocultação da implementação e dos dados. Estas interfaces foram posteriormente incluídas no programa main de forma a garantir que todo o fluxo do programa é controlado pelo módulo main.
-			é possível ver a nova arquitetura dos módulos no diagrama abaixo.
-			\includegraphics[width=\textwidth]{Arquitetura.jpg}
-			Toda a criação do programa, alteração e implementações experimentais foram feitas com recurso ao git com repositório no Github. O que permitiu a criação de branches para cada parte do projeto, bem como para experiências. \\
-			\includegraphics[width=.5\textwidth]{branch.jpg}\\
-			Para além disto também foi com recurso ao Git que foi possível a compilação de uma versão pré-refactoring para comparação da performance.
-						
-			\subsection{parser} O módulo Parser é responsável pelo parsing e validação de cada linha que lhe é passada. devolvendo uma estrutura Stats contendo a informação relevante da linha (nomes de autores, número de autores e ano da publicação) caso seja válida.
+	
 			
-			\subsection{fread} O módulo fread (file read) é responsável pela abertura de ficheiros para leitura. Está preparado para trabalhar com um número de ficheiros máximo a definir na interface. Este módulo está preparado para trabalhar com múltiplos ficheiros simultaneamente devido a duas razões. A primeira é para permitir que este módulo possa trabalhar com o ficheiro lista.txt e com um ficheiro de revista ou conferencia em simultâneo. A segunda razão deve-se a inicialmente ter sido pensada a possibilidade de otimizar o programa através da criação de várias threads de forma a que cada ficheiro de revista ou conferência pudesse ser tratado num processo separado, implementando assim paralelismo. 
-			Contudo no decorrer do projeto, e após medições te tempos de execução tanto no teste 5 (stress) como posteriormente no TESTE1\_FASE2, foi concluído que esta otimização era desnecessária tendo em conta o tempo que a implementação gastaria, bem como o pouco benefício (em tempo de execução) que traria. Esta conclusão é suportada pelo facto dos testes utilizados terem dimensões razoavelmente grandes e o tempo de execução nestes testes anda na ordem das décimas de segundo tal como nos testes mais simples.
-			Inicialmente foi implementado um buffer de 1KB, tendo sido alterado posteriormente para um buffer dinâmico em que o tamaho inicial deste buffer é ligeiramente superior á dimensão da maioria do tamanho das entradas.
-			
-			\includegraphics[width=\textwidth]{grafo.jpg}
-			
-			\subsection{fwrite}
-			Este módulo é semelhante ao anterior, difere apenas no propósito de escrever ficheiros.
-			\subsection{F}
-			O módulo F consiste na implementação da fase 2A, possui uma interface que é utilizada pelo módulo main de forma a inserir os dados relevantes que o main recebe através do módulo parser. O módulo F é responsável pela criação e gestão da estrutura de dados que permite posteriormente imprimir o ficheiro G.
-			\subsection{main}
-			Este módulo controla o fluxo do programa, fazendo a ponte entre os módulos anteriores. Nomeadamente faz um pedido de linha do ficheiro lista.txt ao modulo fread, para cada linha devolvida faz um novo pedido a esse módulo com o nome de cada ficheiro, sendo devolvida cada linha (entrada) deste último ficheiro. Posteriormente o main passa a linha obtida ao parser, de onde é devolvido um resultado que pode ser NULL sendo incrementado o contador de artigos rejeitados (static no main) ou uma estrutura com informação que é passada ao módulo F para inserção. Finalmente, quando todos os ficheiros contidos no ficheiro "lista.txt" forem processados, o módulo main dá ordem de impressão dos ficheiros D.txt, E.txt e G.csv aos respetivos módulos.
-			
+%%%%%%%%%%%%%%%		CONCLUSAO		 %%%%%%%%%%%%%%%%%%			
 \section{Conclusão}
 		
 		A principal dificuldade que foi ultrapassada, nomeadamente na 2ª Fase, foi a implementação das estruturas de dados uma vez que a função de inserção não funcionava corretamente tendo sido re implementada numa versão recursiva correta. A dificuldade não ultrapassada devido, ao tempo despendido no processo de refactoring, resume-se á falta de tempo para implementação da estrutura de co-autoria. 
 
 \section{Interface}
-\begin{itemize}
-	\item Parser
-		\begin{verbatim}
-		 /**
-		 * Patses a Line 
-		 * @param buffer the buffer containing the line to be parsed
-		 * @param ty+he type of the line conference or jounal)
-		 * @return Struct with all counters.
-		 */
-		Stats parseLine(char * buffer, char t);
-		\end{verbatim}
-		
-	\item fread
-		\begin{verbatim}
-		 /**
-		 * Initializes the control for the files
-		 */
-		void init_file_control();
-		
-		/**
-		 * Opens a file.
-		 * @return file index in control, or -1 if failed.
-		 */
-		int openFile(char * file_name, char * mode);
-		
-		/**
-		 * Reads a line from a file growing the buffer as needed.
-		 * @param a reference to the buffer reference.
-		 * @param a reference for the size of the buffer.
-		 * @param file index in control.
-		 * @return 0 if success -1 otherwise.
-		 */
-		int dynamic_read_line(char** buf, int* size, int file);
-		
-		/**
-		 * Closes a file.
-		 * @param index of the file to be closed.
-		 */
-		void closeFile(int index);
-		\end{verbatim}
-	\item fwrite
-		\begin{verbatim}
-		/**
-		 * This function outputs the number of rejected entries in each file to the "E.txt" file. If the file does not exist, it is created.
-		 * @param int counter number of invalid entries in the file.
-		 * @param char * fileN the name of the courent file.
-		 */
-		void imprimeE(int bool, int counter, char * file, char * path);
 
-		/**
-		 * This function creates the file "D.txt" and it's content. If the file alreaddy exists, it is rewritten.
-		 * @param nRej the number of rejected entries
-		 * @param nJou the number of Journals
-		 * @param nCou the number of Counferences
-		 * @param path the path of the file to be written to.
-		 */
-		void imprimeD(int nRej, int nJou, int nCou, char * path);
-		\end{verbatim}
-	\item F
-		\begin{verbatim}
-		/**
-		 * Adds data to the structure.
-		 * @return returns a pointer to a structure with the linked list
-		 */
-		struct sList * addList();
-		
-		/**
-		 * This function creates the file "G.csv" and it's content. If the file alreaddy exists it is rewritten.
-		 * @param bool if it's first time opens in "w" mode else in "a".
-		 */
-		int imprimeG();
-		\end{verbatim}
-		
-\end{itemize}		
+				
+
 		
 	
 \end{document}
