@@ -4,6 +4,8 @@
  */
 package li3.java;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,6 +38,23 @@ public class FileInput {
             fichScan = new Scanner(new FileReader(nome_ficheiro));
             fichScan.useDelimiter(System.getProperty("line.separator"));
             while (fichScan.hasNext()) linhas.add(fichScan.next());
+        }
+        catch (IOException e) { System.out.println(e.getMessage()); }
+        return linhas;
+    }
+    
+    public static ArrayList<String> txtInputBuffer (String nome_ficheiro){
+        ArrayList<String> linhas = new ArrayList<String> ();
+        FileReader fichScan = null;
+        BufferedReader br = null;
+        String linha;
+        try {
+            fichScan = new FileReader(new File(nome_ficheiro));
+            br = new BufferedReader(fichScan);
+            //fichScan.use(System.getProperty("line.separator"));
+            while ((linha = br.readLine()) != null) {
+                linhas.add(linha);
+            }
         }
         catch (IOException e) { System.out.println(e.getMessage()); }
         return linhas;

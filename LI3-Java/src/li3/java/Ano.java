@@ -29,9 +29,8 @@ public class Ano implements Serializable {
     public Ano(String ano){
         this.ano = ano;
         
-        //Autor a = new Autor();
+        
         autores = new HashMap<String, Autor>();
-        //autores.put(ano, a);
     }
     
     public Ano(HashMap<String, Autor> autores) {
@@ -111,7 +110,6 @@ public class Ano implements Serializable {
     public int semCoautores(){
         int i =0;
         for (Autor a: autores.values()){
-            //System.out.println(a.contaCoautores());
             if (a.contaCoautores() == 0){
                 i+=1;
             }
@@ -126,25 +124,20 @@ public class Ano implements Serializable {
                 i+=1;
             }
         }
-        //System.out.println(this.getAno()+"|"+i);
         return i;
     }
     
     public HashMap<String,Integer> topArtigos(){
         HashMap<String,Integer> top = new HashMap<String,Integer>();
         for (Autor a : autores.values()) {
-            //System.out.println(a.getNome()+"|"+a.getArtigos());
             top.put(a.getNome(), a.getArtigos());
         }
-        //System.out.println(top.toString());
         return top;
     }
     
     public HashMap<String,Integer> topCOArtigos(){
         HashMap<String,Integer> top = new HashMap<String,Integer>();
         for (Autor a : autores.values()) {
-            //System.out.println(a.getNome()+"|"+a.getArtigos());
-            //top.put(a.getNome(), a.getArtigos());
             if (a.contaCoautores()>0){
                 String autor = a.getNome();
                 HashMap<String,Integer> co = a.coAutoresHash();
@@ -156,8 +149,6 @@ public class Ano implements Serializable {
             }
             
         }
-        //System.out.println(top.toString());
-        //System.out.println(top.toString());
         return top;
     }
     

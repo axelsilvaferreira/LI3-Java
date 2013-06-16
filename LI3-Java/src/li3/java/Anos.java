@@ -72,40 +72,13 @@ public class Anos implements Serializable{
             listaSEM.addAll(a.listaSemCoautores());
         }
         listaSEM.removeAll(listaCOM);
-        return listaSEM.size();/*
-        HashSet<String> lista = new HashSet<String>();
-        HashSet<String> lista2 = new HashSet<String>();
-        
-        for (Ano a : anos.values()){
-            HashSet<String> nomes_ano = a.listaSemCoautores();
-            for (String s : nomes_ano){
-                lista.add(s);
-            }
-        }
-        
-        for (Ano a : anos.values()){
-            HashSet<String> nomes_ano = a.listaDeCoautores();
-            for (String s : nomes_ano){
-                lista2.add(s);
-            }
-        }
-        
-        for (String s: lista2){
-            if (lista.contains(s)) lista.remove(s);
-        }
-        
-        return lista.size();
-    
-        */ 
+        return listaSEM.size();
     }
     
     public int numeroAutoresComCO(){
         HashSet<String> autores = listaAutores();
         HashSet<String> lista = (HashSet<String>) autores.clone();
-        //int conta=0;
-        //int flag=0;
         
-        //System.out.println(autores.size());
         for (String s: autores){
             for (Ano a: anos.values()){
                 if (a.existeAutor(s)){
@@ -114,44 +87,10 @@ public class Anos implements Serializable{
                     }
                 }
             }
-            /*
-            flag =0;
-            for(Ano a: anos.values()){
-                if (a.existeAutor(s)){
-                    Autor autor = a.getAutor(s);
-                    if(autor.isSolo()){
-                        flag+=1;
-                    }
-                }
-            }
-            if(flag>0) conta+=1;
-        
-        */ 
         }
         
         return lista.size();
-        /*
-        HashSet<String> listaCOM = new HashSet<String>();
-        HashSet<String> listaSEM = new HashSet<String>();
         
-        for (Ano a : anos.values()){
-            listaCOM.addAll(a.listaDeCoautoresNaoSolo());
-            listaSEM.addAll(a.listaSemCoautores());
-        }
-        listaCOM.removeAll(listaSEM);
-        return listaCOM.size();
-        
-        */
-        /*
-        HashSet<String> lista = new HashSet<String>();
-        for (Ano a : anos.values()){
-            HashSet<String> nomes_ano = a.listaDeCoautores();
-            for (String s : nomes_ano){
-                lista.add(s);
-            }
-        }
-        return lista.size();
-        */
     }
     
     
@@ -190,7 +129,6 @@ public class Anos implements Serializable{
     public String anoFinal(){
         return anos.lastKey();
     }
-    //public void add
     
     public String toString(){
         StringBuilder s = new StringBuilder();
@@ -226,20 +164,6 @@ public class Anos implements Serializable{
         }
         return lista;
     }
-    
-    /*
-    public TreeSet<String> listaAutoresPorIntervalo(Integer anoi, Integer anof){
-        TreeSet<String> lista = new TreeSet<String>();
-        TreeSet<String> auNomes = new TreeSet<String>();
-        Ano ano;
-        Autor autor;
-        for (Integer i = anoi; i <= anof; i++) {
-            ano = anos.get(i.toString());
-            lista.addAll(ano.listaAutores());
-        }
-        return lista;
-    }
-    */
     
     public HashSet<String> listaAutores(){
         HashSet<String> lista = new HashSet<String>();
