@@ -314,6 +314,7 @@ public class LI3Java {
         Anos anos = new Anos();
         Ano ano;
         Ano ano2;
+        Autor autor;
         TreeMap<String,Integer> statsAno = new TreeMap<String, Integer>();
         Scanner ler = new Scanner(System.in);
         int op_menu;
@@ -323,6 +324,7 @@ public class LI3Java {
         int n_artigos_umautor = 0;
         
         linhas = FileInput.txtInput();
+        
         
         for (int i = 0; i < linhas.size(); i++) {
             dados = trimAutorAno(linhas.get(i));
@@ -341,7 +343,11 @@ public class LI3Java {
                 Ano a = anos.getAno(dados[dados.length-1].trim());
                 a.addAutor(dados[j].trim());   
                 //System.out.println("|"+dados[j].trim()+"|");
-                if(dados.length == 2) n_artigos_umautor+=1;
+                if(dados.length == 2) {
+                    n_artigos_umautor+=1;
+                    autor = a.getAutor(dados[0].trim());
+                    autor.setSolo(true);
+                }
             }
             for (int j = 0; j <= dados.length-2; j++) {
                 Ano a = anos.getAno(dados[dados.length-1].trim());
@@ -573,8 +579,7 @@ class ValueComparator implements Comparator<String> {
         public ValueComparator(Map<String, Integer> base) {
             this.base = base;
         }
-
-        // Note: this comparator imposes orderings that are inconsistent with equals.    
+        
         @Override
         public int compare(String a, String b) {
             if (base.get(a) > base.get(b)) {
@@ -583,7 +588,7 @@ class ValueComparator implements Comparator<String> {
                 return 1;
             } else {
                 return a.compareTo(b);
-            }// returning 0 would merge keys
+            }
         }
 }
 

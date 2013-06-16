@@ -21,10 +21,11 @@ public class Autor implements Serializable {
     private String nome;
     private int artigos;
     private HashMap<String,Coautores> coautores;
+    private boolean solo;
     
 
     public Autor(){
-        coautores = new HashMap<String, Coautores>();
+        this.coautores = new HashMap<String, Coautores>();
     }
     
     public Autor(String nome, int artigos) {
@@ -35,7 +36,7 @@ public class Autor implements Serializable {
     public Autor(String nome) {
         this.nome = nome;
         this.artigos = 1;
-        coautores = new HashMap<String, Coautores>();
+        this.coautores = new HashMap<String, Coautores>();
     }
     
     public Autor(String nome, String coautor) {
@@ -65,6 +66,14 @@ public class Autor implements Serializable {
     public Coautores getCoautor(String coautor) {
         return coautores.get(coautor);
     }
+
+    public boolean isSolo() {
+        return solo;
+    }
+
+    public void setSolo(boolean solo) {
+        this.solo = solo;
+    }
     
     public void addCoautor(String coautor) {
         Coautores a;
@@ -74,6 +83,7 @@ public class Autor implements Serializable {
         } else {
             a = new Coautores(coautor);
             coautores.put(coautor, a);
+            
         }
     }
     
@@ -126,6 +136,7 @@ public class Autor implements Serializable {
         s.append("\n::::: Autor :::::");
         s.append("\nAutor: ").append(nome);
         s.append("\nNº Artigos: ").append(artigos);
+        s.append("\nPublica sempre a Solo: ").append(solo);
         if (coautores.isEmpty()) s.append("\n");
         for (Coautores c : coautores.values()) {
             s.append("\n --->" + i +"º Coautor <---\n");

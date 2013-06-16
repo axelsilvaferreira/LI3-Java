@@ -172,6 +172,17 @@ public class Ano implements Serializable {
         return lista;
     }
     
+    public HashSet<String> listaDeCoautoresNaoSolo(){
+        HashSet<String> lista = new HashSet<String>();
+        for(Autor a : autores.values()){
+            if (!a.isSolo()){
+                lista.add(a.getNome());
+            }
+        }
+        
+        return lista;
+    }
+    
     public HashSet<String> listaSemCoautores(){
         HashSet<String> lista = new HashSet<String>();
         for(Autor a : autores.values()){
