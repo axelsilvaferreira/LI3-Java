@@ -22,6 +22,16 @@ public class Anos implements Serializable{
     public Anos(){
         anos = new TreeMap<String, Ano>();
     }
+
+    public Anos(Anos a)
+    { TreeMap<String,Ano>  ano = new TreeMap<String,Ano>();
+        
+        for()
+    
+        this.anos = ano;
+        
+    }
+    
     
 
     public TreeMap<String, Ano> getAnos() {
@@ -258,4 +268,13 @@ public class Anos implements Serializable{
         }
         return list;   
     }
+
+    public Anos clone()
+    {   return new Anos(this);   }
+
+
+
+
+
+
 }

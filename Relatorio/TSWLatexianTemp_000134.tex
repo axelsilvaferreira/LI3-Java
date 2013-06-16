@@ -96,11 +96,7 @@
 	%%%%%%%%%%%%%%%%%%     ESTRUTUA DO RELATORIO     %%%%%%%%%%%%%%
 	\subsection{Estrutura do Relatório}
 		Este relatório inicia-se com uma capa, incluindo o título do projeto, a data, a identificação dos autores e da equipa docente que acompanhou o projeto. Segue-se o Índice, o Abstract que resume o projeto, a Introdução ao mesmo (onde se explicita o objetivo a atingir) e a Estrutura do Relatório. 
-		No desenvolvimento 
-	
-	%%%%   <---------------CONTINUAR
-		%%% BLA BLA BLA BLA BLA
-		%O Desenvolvimento tem como secções os tipos e estruturas de dados, cada uma das tarefas Fase 1, Fase 2A e Fase 2B. Por fim apresentam-se a Conclusão e os anexos.
+		No desenvolvimento são explicadas as classes criadas e a razão das estruturas de dados escolhidas, bem como as consultas estatísticas e interativas. Por fim apresentam-se a Conclusão.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -110,7 +106,10 @@
 		\subsection{Classes Criadas}
 		
 		
-		Na criação deste programa foram desenvolvidas algums classes
+		Na criação deste programa foram desenvolvidas algumas classes que são explicadas abaixo.
+		Neste diagrama encontra-se explicada a estrutura de dados utilizada no programa. \includegraphics[width=\textwidth]{diagrama_est_dados.jpg}		
+		O diagrama abaixo mostra a hierarquia de classes.
+		\includegraphics[width=\textwidth]{diagrama_classes.JPG}
 		
 		\begin{itemize}
 			\item Anos - Esta classe armazena toda a estrutura de dados. Contém um TreeMap em que são inseridos todos os anos. Cada ano é inserido, utilizando como chave a String contendo a numeração do ano.
@@ -147,16 +146,23 @@
 				
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%   Consultas Dados  70%      %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%   Consultas Dados  70%      %%%%%%%%%%%%%%%%%%%%
 \section{Consultas Estatísticas}
 	\subsection{Dados do último ficheiro lido}
 		Quando o ficheiro é lido, é apresentado no ecrã o nome do ficheiro, seguido do número total de artigos, e número total de nomes lidos, número total de nomes distintos bem como o intervalo fechado de anos em que os artigos foram lidos.
 		É ainda apresentada alguma informação respeitante aos dados atuais da estrutura de dados, nomeadamente nº total de autores, nº total de artigos, de um só autor, e nº de autores que apenas publicaram a solo.
 		Finalmente é ainda apresentada toda a sequência ordenada de anos seguido do respetivo número de publicações.
 	\subsection{Consultas Interativas}
-\section{Consultas Interativas}
-	\subsection{}				
-
+		Nas queries interativas foi implementado um sistema de menus por prompt em que são mostradas as opções disponíveis ao utilizador do software que posteriormente seleciona a opção pretendida. Foram criadas as seguintes queries interativas:
+		\item{Top # de nº de publicações}
+		\item{Top # de co-autores}
+		\item{Listagem de co-autores comuns a uma lista de autores}
+		\item{}
+		
+	\subsection{Consultas Globais}	
+		Foram criadas ainda duas queries que efetuam travessias transversais á estrutura de dados.			
+		\item{Top # de nº de interações}
+		\item{Top # de nº de interações}
 %%%%%%%%%%%%%     Mediadas de Performance 30%    %%%%%%%%%%%%%%%%
 				
 	

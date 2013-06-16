@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  16 JUN 2013 10:30
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  16 JUN 2013 15:36
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000045.tex"
-(/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000045.tex
+**"/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000134.tex"
+(/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000134.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, german-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabic, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnish, french, friulan, galician, german, ngerman, swissgerman, monogreek, greek, hungarian, icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, marathi, oriya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk, polish, portuguese, romanian, romansh, russian, sanskrit, serbian, serbianc, slovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, welsh, loaded.
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/article.cls
@@ -223,7 +223,7 @@ Package caption Info: hyperref package is loaded.
 Package: subcaption 2012/01/12 v1.1d Sub-captions (AR)
 \c@subfigure=\count100
 \c@subtable=\count101
-) (./TSWLatexianTemp_000045.aux
+) (./TSWLatexianTemp_000134.aux
 
 LaTeX Warning: Label `fig:gull' multiply defined.
 
@@ -231,7 +231,7 @@ LaTeX Warning: Label `fig:gull' multiply defined.
 LaTeX Warning: Label `sub@fig:gull' multiply defined.
 
 )
-\openout1 = `TSWLatexianTemp_000045.aux'.
+\openout1 = `TSWLatexianTemp_000134.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
@@ -283,9 +283,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 32.
 LaTeX Info: Redefining \pageref on input line 32.
 LaTeX Info: Redefining \nameref on input line 32.
- (./TSWLatexianTemp_000045.out) (./TSWLatexianTemp_000045.out)
+ (./TSWLatexianTemp_000134.out) (./TSWLatexianTemp_000134.out)
 \@outlinefile=\write3
-\openout3 = `TSWLatexianTemp_000045.out'.
+\openout3 = `TSWLatexianTemp_000134.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
@@ -295,95 +295,249 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 44.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 44.
- <axel.jpg, id=44, 201.75375pt x 202.7575pt>
+ <axel.jpg, id=40, 201.75375pt x 202.7575pt>
 File: axel.jpg Graphic file (type jpg)
  <use axel.jpg>
 Package pdftex.def Info: axel.jpg used on input line 56.
 (pdftex.def)             Requested size: 127.37717pt x 128.01015pt.
- <joao.jpg, id=45, 194.7275pt x 196.735pt>
+ <joao.jpg, id=41, 194.7275pt x 196.735pt>
 File: joao.jpg Graphic file (type jpg)
  <use joao.jpg>
 Package pdftex.def Info: joao.jpg used on input line 65.
 (pdftex.def)             Requested size: 127.37717pt x 128.68974pt.
- <logo_eeng.jpg, id=46, 101.4189pt x 78.7743pt>
+ <logo_eeng.jpg, id=42, 101.4189pt x 78.7743pt>
 File: logo_eeng.jpg Graphic file (type jpg)
  <use logo_eeng.jpg>
 Package pdftex.def Info: logo_eeng.jpg used on input line 77.
 (pdftex.def)             Requested size: 101.41864pt x 78.77411pt.
  [1
 
-{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logo_eeng.jpg> <./axel.jpg> <./joao.jpg>] (./TSWLatexianTemp_000045.toc)
+{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logo_eeng.jpg> <./axel.jpg> <./joao.jpg>] (./TSWLatexianTemp_000134.toc)
 \tf@toc=\write4
-\openout4 = `TSWLatexianTemp_000045.toc'.
+\openout4 = `TSWLatexianTemp_000134.toc'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <9> on input line 83.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 83.
- <logo-ee.jpg, id=69, 140.525pt x 70.2625pt>
+ <diagrama_est_dados.jpg, id=64, 1031.855pt x 852.18375pt>
+File: diagrama_est_dados.jpg Graphic file (type jpg)
+ <use diagrama_est_dados.jpg>
+Package pdftex.def Info: diagrama_est_dados.jpg used on input line 110.
+(pdftex.def)             Requested size: 424.58624pt x 350.6459pt.
+ <diagrama_classes.JPG, id=65, 852.18375pt x 523.9575pt>
+File: diagrama_classes.JPG Graphic file (type jpg)
+ <use diagrama_classes.JPG>
+Package pdftex.def Info: diagrama_classes.JPG used on input line 112.
+(pdftex.def)             Requested size: 424.58624pt x 261.05869pt.
+ <logo-ee.jpg, id=66, 140.525pt x 70.2625pt>
 File: logo-ee.jpg Graphic file (type jpg)
  <use logo-ee.jpg>
-Package pdftex.def Info: logo-ee.jpg used on input line 116.
+Package pdftex.def Info: logo-ee.jpg used on input line 113.
 (pdftex.def)             Requested size: 76.60497pt x 38.30301pt.
  [2 <./logo-ee.jpg>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 116.
+File: logo-ee.jpg Graphic file (type jpg)
+ <use logo-ee.jpg>
+Package pdftex.def Info: logo-ee.jpg used on input line 115.
+(pdftex.def)             Requested size: 76.60497pt x 38.30301pt.
+ [3 <./diagrama_est_dados.jpg>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 115.
  (/usr/local/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 116.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 118.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 115.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 117.
  (/usr/local/texlive/2012/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 File: logo-ee.jpg Graphic file (type jpg)
  <use logo-ee.jpg>
-Package pdftex.def Info: logo-ee.jpg used on input line 156.
+Package pdftex.def Info: logo-ee.jpg used on input line 137.
 (pdftex.def)             Requested size: 76.60497pt x 38.30301pt.
- [3]
+ [4 <./diagrama_classes.JPG>]
 
-LaTeX Warning: Command \textordfeminine invalid in math mode on input line 168.
+/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000134.tex:157: LaTeX Error: Lonely \item--perhaps a missing list environment.
 
-
-LaTeX Warning: Command \c invalid in math mode on input line 168.
-
-
-LaTeX Warning: Command \~ invalid in math mode on input line 168.
-
-
-LaTeX Warning: Command \c invalid in math mode on input line 168.
-
-
-LaTeX Warning: Command \~ invalid in math mode on input line 168.
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.157 		\item{
+              Top # de nº de publicações}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 168.
+Underfull \hbox (badness 10000) detected at line 157
+[][]
+ []
+
+/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000134.tex:157: You can't use `macro parameter character #' in horizontal mode.
+l.157 		\item{Top #
+                    de nº de publicações}
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 168.
+/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000134.tex:158: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.158 		\item{
+              Top # de co-autores}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 168.
+Underfull \hbox (badness 10000) detected at line 158
+[][]
+ []
+
+/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000134.tex:158: You can't use `macro parameter character #' in horizontal mode.
+l.158 		\item{Top #
+                    de co-autores}
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 168.
+/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000134.tex:159: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.159 		\item{
+              Listagem de co-autores comuns a uma lista de autores}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 168.
+Underfull \hbox (badness 10000) detected at line 159
+[][]
+ []
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 168.
+/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000134.tex:160: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.160 		\item{
+              }
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
-LaTeX Warning: Command \c invalid in math mode on input line 168.
+Underfull \hbox (badness 10000) detected at line 160
+[][]
+ []
 
 
-LaTeX Warning: Command \~ invalid in math mode on input line 168.
+/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000134.tex:164: LaTeX Error: Lonely \item--perhaps a missing list environment.
 
-/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000045.tex:169: Missing $ inserted.
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.164 		\item{
+              Top # de nº de interações}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 164
+[][]
+ []
+
+/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000134.tex:164: You can't use `macro parameter character #' in horizontal mode.
+l.164 		\item{Top #
+                    de nº de interações}
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000134.tex:165: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.165 		\item{
+              Top # de nº de interações}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 165
+[][]
+ []
+
+/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000134.tex:165: You can't use `macro parameter character #' in horizontal mode.
+l.165 		\item{Top #
+                    de nº de interações}
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+File: logo-ee.jpg Graphic file (type jpg)
+<use logo-ee.jpg>
+Package pdftex.def Info: logo-ee.jpg used on input line 173.
+(pdftex.def)             Requested size: 76.60497pt x 38.30301pt.
+ [5]
+
+LaTeX Warning: Command \textordfeminine invalid in math mode on input line 174.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 174.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 174.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 174.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 174.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 174.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 174.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 174.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 174.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 174.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 174.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 174.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 174.
+
+/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000134.tex:175: Missing $ inserted.
 <inserted text> 
                 $
-l.169 
+l.175 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -401,41 +555,41 @@ Missing character: There is no · in font cmr12!
 Missing character: There is no Á in font cmr12!
 Missing character: There is no „ in font cmr12!
 
-Overfull \hbox (1179.2537pt too wide) in paragraph at lines 167--169
+Overfull \hbox (1179.2537pt too wide) in paragraph at lines 173--175
  $\OML/cmm/m/it/12 Aprincipaldificuldadequefoiultrapassada; nomeadamentena\OT1/cmr/m/n/12 2[]\OML/cmm/m/it/12 Fase; foiaimplementaodasestruturasdedadosumavezqueafunodeinseronofuncionavacorretamentetendosidoreimplementadanumaversorecursivacorreta:Adificuldadenoultrapassadadevido; aotempodespendidonoprocessoderefactoring; resume \OMS/cmsy/m/n/12 ^^@ 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 171.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 177.
 File: logo-ee.jpg Graphic file (type jpg)
 <use logo-ee.jpg>
-Package pdftex.def Info: logo-ee.jpg used on input line 171.
+Package pdftex.def Info: logo-ee.jpg used on input line 177.
 (pdftex.def)             Requested size: 76.60497pt x 38.30301pt.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 171.
- (./TSWLatexianTemp_000045.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 171.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 171.
-Package rerunfilecheck Info: File `TSWLatexianTemp_000045.out' has not changed.
-(rerunfilecheck)             Checksum: ADF6C5FF7BEFAEC471669F863FDBBB9F;617.
+ [6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 177.
+ (./TSWLatexianTemp_000134.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 177.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 177.
+Package rerunfilecheck Info: File `TSWLatexianTemp_000134.out' has not changed.
+(rerunfilecheck)             Checksum: 0C159BBDF58BCC057144E436E2A0081F;577.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 171.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 177.
  ) 
 Here is how much of TeX's memory you used:
- 7303 strings out of 493488
- 109404 string characters out of 3141326
+ 7314 strings out of 493488
+ 109648 string characters out of 3141326
  201428 words of memory out of 3000000
- 10493 multiletter control sequences out of 15000+200000
+ 10500 multiletter control sequences out of 15000+200000
  16111 words of font info for 38 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 36i,15n,43p,592b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,16n,43p,592b,530s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsl1000.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on TSWLatexianTemp_000045.pdf (4 pages, 339796 bytes).
+Output written on TSWLatexianTemp_000134.pdf (6 pages, 566277 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 118 compressed objects within 2 object streams
- 17 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 149 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
+ 18 named destinations out of 1000 (max. 500000)
+ 103 words of extra memory for PDF output out of 10000 (max. 10000000)
 
