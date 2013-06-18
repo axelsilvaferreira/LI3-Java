@@ -153,24 +153,31 @@
 		É ainda apresentada alguma informação respeitante aos dados atuais da estrutura de dados, nomeadamente nº total de autores, nº total de artigos, de um só autor, e nº de autores que apenas publicaram a solo.
 		Finalmente é ainda apresentada toda a sequência ordenada de anos seguido do respetivo número de publicações.
 	\subsection{Consultas Interativas}
-		Nas queries interativas foi implementado um sistema de menus por prompt em que são mostradas as opções disponíveis ao utilizador do software que posteriormente seleciona a opção pretendida. Foram criadas as seguintes queries interativas:
+		Nas queries interativas foi implementado um sistema de menus por prompt em que são mostradas as opções disponíveis ao utilizador do software que posteriormente seleciona a opção pretendida. Aqui é pedido um intervalo de anos para responder as seguintes queries.
 		\begin{itemize}	
 			\item{Top \# de nº de publicações}
+				Para cada ano do intervalo, os autores são inseridos como Key num HashMap e o nº de publicações como Value. Se o autor já existir é apenas somado o nº de publicações deste ano as existentes, caso contrário o autor é inserido. No fim é impressa uma lista dos \# elementos com mais publicações decrescentemente organizada, e em caso de empate é impresso por ordem alfabética.
 			\item{Top \# de co-autores}
+				A classe Ano tem um método topCoArtigos() que devolve um HashMap com todas as combinações possíveis não repetidas autor-coautor (Key) e respetivo número de publicações(Value).
+				Posteriormente, para cada ano do intervalo dado é percorrido o topCoAutores() e são inseridos numa estrutura final todos os autores-coautores, e em caso de já existirem, é apenas somado o nº de publicações. Finalmente é criado um TreeMap com um comparator que ordena por nº de Artigos e em caso de empate alfabeticamente toda a estrutura.
 			\item{Listagem de co-autores comuns a uma lista de autores}
-			\item{p}
+				Dada uma lista de autores, é utilizado o método listaCoautoresDeAnoPorIntervalo() que recebe o ano inicial, final e o nome do autor, devolve a lista de co-autores deste autor, isto é repetido para todos os autores. A primeira lista é inserida numa lista final (TreeSet), e para cada uma das listas seguintes são removidos os nomes da lista final que não constam nas listas seguintes.
+				No fim, a lista final é impresso alfabeticamente.
+			\item{Listagem de autores que publicam em todos os anos do intervalo}
+				Inicialmente é usado o método listaAutores() que devolve a lista de todos os autores que publicaram nesse ano. Estes autores são inseridos numa estrutura final TreeSet. Para cada um dos anos seguintes é executado o método listaAutores(), e são removidos os autores da estrutura final, caso não se encontrem na nova lista.
 		\end{itemize}	
 	\subsection{Consultas Globais}	
 		Foram criadas ainda duas queries que efetuam travessias transversais á estrutura de dados.
 		\begin{itemize}				
 			\item{\# de linhas duplicadas}
-				
-			\item{tabela de coautores ate \#}
+				Esta querie foi calculada com recurso a uma nova leitura do ficheiro publicx.txt, em que as linhas foram inseridas numa estrutura Set. Posteriormente, a diferença entre este Set e a estrutura que tem o nº de linhas inicialmente lidas responde á querie.
+			\item{tabela de autores/coautores com menos de \# co-autores}
+				Para responder a esta querie é criado um TreeMap em que a Key é o nome de cada autor, e o Value corresponde a um TreeSet com o nome dos respetivos coautores. Posteriormente é pedido o número máximo de co-autores a imprimir. O TreeMap de autores e TreeSet de co-autores foram escolhidos para permitir a impressão ordenada alfabeticamente.
 		\end{itemize}	
 %%%%%%%%%%%%%     Mediadas de Performance 30%    %%%%%%%%%%%%%%%%
 	\section{Medidas de Performance}
 		\subsection{Tempos de Leitura}
-			Foram realizados testes de tempos de leitura, tendo como base o ficheiro publicx.txt múltiplos do conteúdo deste ficheiro (4x, 6x, 8x), com as classes Scanner e BufferedReader tendo sido obtidos os seguintes tempos medidos em segundos:\vspace{20pt}
+			Foram realizados testes de tempos de leitura, tendo como base o ficheiro publicx.txt múltiplos do conteúdo deste ficheiro (4x, 6x, 8x), com as classes Scanner e BufferedReader tendo sido obtidos os tempos do gráfico abaixo, com o tempo medido em segundos. Estes tempos são referentes apenas á leitura, e não incluem o parsing. Foi utilizada a classe System.nanoTime para estas medições. Estes resultados espelham a diferença do buffer de 1KB utilizado pela classe Scanner vs o buffer de 8KB utilizado pela classe BufferedReader.\vspace{20pt}
 			 
 			\includegraphics[width=\textwidth]{grafico.png}
 	
