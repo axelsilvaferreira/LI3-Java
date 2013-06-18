@@ -15,8 +15,10 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.Iterator;
+import java.util.Vector;
 
 
 
@@ -269,16 +271,16 @@ public class LI3Java {
     }
     
     public static void tabelaAutoresCoautores(Anos anos){
-        TreeMap<String,TreeSet<String>> tabela = new TreeMap<String, TreeSet<String>>();
-        TreeSet<String> listaAnos = anos.listaAnos();
-        TreeSet<String> listaAutores = anos.listaAutoresComCoaurores();
-        TreeSet<String> l;
+        HashMap<String,HashSet<String>> tabela = new HashMap<String, HashSet<String>>();
+        HashSet<String> listaAnos = anos.listaAnos();
+        HashSet<String> listaAutores = anos.listaAutoresComCoaurores();
+        HashSet<String> l;
         Scanner ler = new Scanner(System.in);
         int numero;
         for(String a: listaAnos){
             Ano ano = anos.getAno(a);
             for(String au: listaAutores){
-                l = new TreeSet<String>();
+                l = new HashSet<String>();
                 if (ano.existeAutor(au)){
                     Autor autor = ano.getAutor(au);
                     l.addAll(autor.listaCoautores());
@@ -287,19 +289,19 @@ public class LI3Java {
             }
         }
         
-        System.out.println("Numero maximo de Coautores: ");
-        numero = ler.nextInt();
+        //System.out.println("Numero maximo de Coautores: ");
+        //numero = ler.nextInt();
         
-        for(Map.Entry<String,TreeSet<String>> entry : tabela.entrySet()){
+        for(Map.Entry<String,HashSet<String>> entry : tabela.entrySet()){
             String autor = entry.getKey();
-            TreeSet<String> coautores = entry.getValue();
+            HashSet<String> coautores = entry.getValue();
             //System.out.println("||||||||||||||||"+coautores.size()+"||||||||||");
-            if (coautores.size() > 0 && coautores.size() <= numero){
-                System.out.print(autor+": ");
+            if (coautores.size() > 0 && coautores.size() <= 200){
+                //System.out.print(autor+": ");
                 for(String s: coautores){
-                    if(!autor.equals(s)) System.out.print(s+", ");
+                    //if(!autor.equals(s)) System.out.print(s+", ");
                 }
-                System.out.println();
+                //System.out.println();
             }
         }
     }
@@ -309,7 +311,7 @@ public class LI3Java {
     }
     
     public static void main(String[] args) throws ClassNotFoundException {
-        ArrayList<String> linhas;
+        Vector<String> linhas;
         String[] dados;
         Anos anos = new Anos();
         Ano ano;
@@ -325,7 +327,7 @@ public class LI3Java {
         
         linhas = FileInput.txtInput();
         
-        
+        long inicio = System.nanoTime();
         for (int i = 0; i < linhas.size(); i++) {
             dados = trimAutorAno(linhas.get(i));
             anos.addAno(dados[dados.length-1].trim());
@@ -357,13 +359,16 @@ public class LI3Java {
                 }
             }
         }
+        long fim = System.nanoTime();
+        
+        System.out.println("Tempo: " + (fim - inicio)/1.0E09 + " segs.\n");
         
         System.out.println("Informações do Ficheiro:\n");
         System.out.println("Nome do Ficheiro: " + FileInput.nomeFicheiro());
         System.out.println("Numero de Artigos: " + linhas.size());
         System.out.println("Numero de Nomes Lidos: " + n_nomes);
         System.out.println("Nuemro de Autores Diferentes: " + anos.numeroAutoresTotal());
-        System.out.println("Intervalo de anos: [" + anos.anoInicial() + " a " + anos.anoFinal() + "]");
+        //System.out.println("Intervalo de anos: [" + anos.anoInicial() + " a " + anos.anoFinal() + "]");
         
         System.out.println("\nNumeros Gerais:\n");
         System.out.println("Numero Total de Autores: " + anos.numeroAutoresTotal());
@@ -372,12 +377,16 @@ public class LI3Java {
         System.out.println("Numero de Autores que NUNCA Publicam a Solo: " + anos.numeroAutoresComCO());
         
         System.out.println("\nNumero de Artigos por Ano:\n");
+        inicio = System.nanoTime();
         for(Map.Entry<String,Integer> entry : statsAno.entrySet()) {
             String key = entry.getKey();
             Integer value = entry.getValue();
 
-            System.out.println(key + " => " + value);
+            //System.out.println(key + " => " + value);
         }
+        fim = System.nanoTime();
+        
+        System.out.println("Tempo: " + (fim - inicio)/1.0E09 + " segs.\n");
         
         while (flag != 0) {
             
@@ -388,11 +397,12 @@ public class LI3Java {
             switch (op_menu) {
                 case 1:
                     Integer anoi,anof;
-                    System.out.print("Introduza o ano inicial: ");
-                    anoi = ler.nextInt();
-                    System.out.print("Introduza o ano final: ");
-                    anof = ler.nextInt();
-                    
+                    //System.out.print("Introduza o ano inicial: ");
+                    //anoi = ler.nextInt();
+                    //System.out.print("Introduza o ano final: ");
+                    //anof = ler.nextInt();
+                    anoi = 2005;
+                    anof = 2013;
                     if (anoi <= anof){
                         menuInterativas();
                         op_menu = ler.nextInt();
@@ -404,11 +414,18 @@ public class LI3Java {
                                 topCoautores(anos, anoi, anof);
                                 break;
                             case 3:
+                                inicio = System.nanoTime();
                                 listaCoautoresComum(anos, anoi, anof);
+                                fim = System.nanoTime();
+                                System.out.println("Tempo: " + (fim - inicio)/1.0E09 + " segs.\n");
                                 break;
                             case 4:
                                 if (anoi < anof) {
+                                    inicio = System.nanoTime();
                                     listaAutoresInt(anos, anoi, anof);
+                                    fim = System.nanoTime();
+                                    System.out.println("Tempo: " + (fim - inicio)/1.0E09 + " segs.\n");
+                                
                                 } else {
                                     System.out.println("Intervalo Invalido!!");
                                 }
@@ -425,14 +442,20 @@ public class LI3Java {
                     op_menu = ler.nextInt();
                     switch(op_menu){
                         case 1:
+                            inicio = System.nanoTime();
                             ArrayList<String> linhas2;
-                            linhas2 = FileInput.txtInput();
-                            TreeSet<String> linhas2set = new TreeSet<String>();
+                            linhas2 = FileInput.txtInputA();
+                            HashSet<String> linhas2set = new HashSet<String>();
                             linhas2set.addAll(linhas2);
                             System.out.println("\nExistem "+(linhas.size()-linhas2set.size())+ " Linhas Duplicadas!");
+                            fim = System.nanoTime();
+                            System.out.println("Tempo: " + (fim - inicio)/1.0E09 + " segs.\n");
                             break;
                         case 2:
+                            inicio = System.nanoTime();
                             tabelaAutoresCoautores(anos);
+                            fim = System.nanoTime();
+                            System.out.println("Tempo: " + (fim - inicio)/1.0E09 + " segs.\n");
                     }
                     break;
                 case 3:

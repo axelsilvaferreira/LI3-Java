@@ -7,7 +7,7 @@ package li3.java;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.TreeMap;
+import java.util.HashMap;
 import java.util.TreeSet;
 
 /**
@@ -17,23 +17,23 @@ import java.util.TreeSet;
 public class Anos implements Serializable{
     private static final long serialVersionUID = 1L;
     
-    private TreeMap<String,Ano> anos;
+    private HashMap<String,Ano> anos;
 
     public Anos(){
-        anos = new TreeMap<String, Ano>();
+        anos = new HashMap<String, Ano>();
     }
 
     
     
     
 
-    public TreeMap<String, Ano> getAnos() {
+    public HashMap<String, Ano> getAnos() {
         return anos;
     }
     
     
     
-    public void setAnos(TreeMap<String, Ano> anos) {
+    public void setAnos(HashMap<String, Ano> anos) {
         this.anos = anos;
     }
     
@@ -122,13 +122,15 @@ public class Anos implements Serializable{
     }
     
     
+    /*
     public String anoInicial(){
-        return anos.firstKey();
+        return anos.();
     }
     
     public String anoFinal(){
         return anos.lastKey();
     }
+    */
     
     public String toString(){
         StringBuilder s = new StringBuilder();
@@ -140,8 +142,8 @@ public class Anos implements Serializable{
         return s.toString();
     }
 
-    public TreeSet<String> listaAutoresComCoaurores(){
-        TreeSet<String> list = new TreeSet<String>();
+    public HashSet<String> listaAutoresComCoaurores(){
+        HashSet<String> list = new HashSet<String>();
         
         for(Ano a : anos.values()) {
             list.addAll(a.nomesAutoresComCoautores());
@@ -177,8 +179,8 @@ public class Anos implements Serializable{
         anos.clear();
     }
     
-    public TreeSet<String> listaAnos(){
-        TreeSet<String> list = new TreeSet<String>();
+    public HashSet<String> listaAnos(){
+        HashSet<String> list = new HashSet<String>();
         
         for(Ano a : anos.values()) {
             list.add(a.getAno());

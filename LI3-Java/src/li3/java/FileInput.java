@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Vector;
 
 /**
  *
@@ -19,7 +20,19 @@ public class FileInput {
     
     public static final String ficheiro ="publicx.txt";
     
-    public static ArrayList<String> txtInput (){
+    public static Vector<String> txtInput (){
+        Vector<String> linhas = new Vector<String> ();
+        Scanner fichScan = null;
+        try {
+            fichScan = new Scanner(new FileReader(ficheiro));
+            fichScan.useDelimiter(System.getProperty("line.separator"));
+            while (fichScan.hasNext()) linhas.add(fichScan.next());
+        }
+        catch (IOException e) { System.out.println(e.getMessage()); }
+        return linhas;
+    }
+    
+    public static ArrayList<String> txtInputA (){
         ArrayList<String> linhas = new ArrayList<String> ();
         Scanner fichScan = null;
         try {
@@ -31,8 +44,8 @@ public class FileInput {
         return linhas;
     }
     
-    public static ArrayList<String> txtInput (String nome_ficheiro){
-        ArrayList<String> linhas = new ArrayList<String> ();
+    public static Vector<String> txtInput (String nome_ficheiro){
+        Vector<String> linhas = new Vector<String> ();
         Scanner fichScan = null;
         try {
             fichScan = new Scanner(new FileReader(nome_ficheiro));
@@ -52,6 +65,7 @@ public class FileInput {
             fichScan = new FileReader(new File(nome_ficheiro));
             br = new BufferedReader(fichScan);
             //fichScan.use(System.getProperty("line.separator"));
+            
             while ((linha = br.readLine()) != null) {
                 linhas.add(linha);
             }
