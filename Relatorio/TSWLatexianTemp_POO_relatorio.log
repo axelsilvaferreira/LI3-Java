@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  18 JUN 2013 17:06
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  18 JUN 2013 19:14
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000614.tex"
-(/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_000614.tex
+**"/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_POO_relatorio.tex"
+(/Users/axelferreira/Dropbox/uMinho/2Semestre/Laboratorio de Informatica 3/LI3-Java/Projeto/LI3-Java/Relatorio/TSWLatexianTemp_POO_relatorio.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, german-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabic, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnish, french, friulan, galician, german, ngerman, swissgerman, monogreek, greek, hungarian, icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, marathi, oriya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk, polish, portuguese, romanian, romansh, russian, sanskrit, serbian, serbianc, slovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, welsh, loaded.
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/article.cls
@@ -223,7 +223,7 @@ Package caption Info: hyperref package is loaded.
 Package: subcaption 2012/01/12 v1.1d Sub-captions (AR)
 \c@subfigure=\count100
 \c@subtable=\count101
-) (./TSWLatexianTemp_000614.aux
+) (./TSWLatexianTemp_POO_relatorio.aux
 
 LaTeX Warning: Label `fig:gull' multiply defined.
 
@@ -231,7 +231,7 @@ LaTeX Warning: Label `fig:gull' multiply defined.
 LaTeX Warning: Label `sub@fig:gull' multiply defined.
 
 )
-\openout1 = `TSWLatexianTemp_000614.aux'.
+\openout1 = `TSWLatexianTemp_POO_relatorio.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
@@ -283,9 +283,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 32.
 LaTeX Info: Redefining \pageref on input line 32.
 LaTeX Info: Redefining \nameref on input line 32.
- (./TSWLatexianTemp_000614.out) (./TSWLatexianTemp_000614.out)
+ (./TSWLatexianTemp_POO_relatorio.out) (./TSWLatexianTemp_POO_relatorio.out)
 \@outlinefile=\write3
-\openout3 = `TSWLatexianTemp_000614.out'.
+\openout3 = `TSWLatexianTemp_POO_relatorio.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
@@ -295,111 +295,140 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 44.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 44.
- <axel.jpg, id=48, 201.75375pt x 202.7575pt>
+ <axel.jpg, id=52, 201.75375pt x 202.7575pt>
 File: axel.jpg Graphic file (type jpg)
  <use axel.jpg>
 Package pdftex.def Info: axel.jpg used on input line 56.
 (pdftex.def)             Requested size: 127.37717pt x 128.01015pt.
- <joao.jpg, id=49, 365.365pt x 453.695pt>
-File: joao.jpg Graphic file (type jpg)
- <use joao.jpg>
-Package pdftex.def Info: joao.jpg used on input line 65.
-(pdftex.def)             Requested size: 127.37717pt x 158.17258pt.
- <logo_eeng.jpg, id=50, 101.4189pt x 78.7743pt>
+ <joao2.jpg, id=53, 201.75375pt x 202.7575pt>
+File: joao2.jpg Graphic file (type jpg)
+ <use joao2.jpg>
+Package pdftex.def Info: joao2.jpg used on input line 65.
+(pdftex.def)             Requested size: 127.37717pt x 128.01015pt.
+ <logo_eeng.jpg, id=54, 101.4189pt x 78.7743pt>
 File: logo_eeng.jpg Graphic file (type jpg)
  <use logo_eeng.jpg>
 Package pdftex.def Info: logo_eeng.jpg used on input line 77.
 (pdftex.def)             Requested size: 101.41864pt x 78.77411pt.
  [1
 
-{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logo_eeng.jpg> <./axel.jpg> <./joao.jpg>] (./TSWLatexianTemp_000614.toc)
+{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logo_eeng.jpg> <./axel.jpg> <./joao2.jpg>] (./TSWLatexianTemp_POO_relatorio.toc)
 \tf@toc=\write4
-\openout4 = `TSWLatexianTemp_000614.toc'.
+\openout4 = `TSWLatexianTemp_POO_relatorio.toc'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <9> on input line 83.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 83.
- <logo-ee.jpg, id=74, 140.525pt x 70.2625pt>
+ <logo-ee.jpg, id=79, 140.525pt x 70.2625pt>
 File: logo-ee.jpg Graphic file (type jpg)
  <use logo-ee.jpg>
-Package pdftex.def Info: logo-ee.jpg used on input line 104.
+Package pdftex.def Info: logo-ee.jpg used on input line 100.
 (pdftex.def)             Requested size: 76.60497pt x 38.30301pt.
- [2 <./logo-ee.jpg>] <diagrama_est_dados.jpg, id=85, 1031.855pt x 852.18375pt>
+ [2 <./logo-ee.jpg>] <diagrama_est_dados.jpg, id=90, 1031.855pt x 852.18375pt>
 File: diagrama_est_dados.jpg Graphic file (type jpg)
  <use diagrama_est_dados.jpg>
-Package pdftex.def Info: diagrama_est_dados.jpg used on input line 110.
+Package pdftex.def Info: diagrama_est_dados.jpg used on input line 111.
 (pdftex.def)             Requested size: 424.58624pt x 350.6459pt.
- <diagrama_classes.JPG, id=86, 852.18375pt x 523.9575pt>
+ <diagrama_classes.JPG, id=91, 852.18375pt x 523.9575pt>
 File: diagrama_classes.JPG Graphic file (type jpg)
  <use diagrama_classes.JPG>
-Package pdftex.def Info: diagrama_classes.JPG used on input line 112.
+Package pdftex.def Info: diagrama_classes.JPG used on input line 113.
 (pdftex.def)             Requested size: 424.58624pt x 261.05869pt.
 File: logo-ee.jpg Graphic file (type jpg)
  <use logo-ee.jpg>
-Package pdftex.def Info: logo-ee.jpg used on input line 115.
+Package pdftex.def Info: logo-ee.jpg used on input line 116.
 (pdftex.def)             Requested size: 76.60497pt x 38.30301pt.
  [3 <./diagrama_est_dados.jpg>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 115.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 116.
  (/usr/local/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 115.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 117.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 116.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 118.
  (/usr/local/texlive/2012/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 File: logo-ee.jpg Graphic file (type jpg)
  <use logo-ee.jpg>
-Package pdftex.def Info: logo-ee.jpg used on input line 137.
+Package pdftex.def Info: logo-ee.jpg used on input line 138.
 (pdftex.def)             Requested size: 76.60497pt x 38.30301pt.
  [4 <./diagrama_classes.JPG>]
 File: logo-ee.jpg Graphic file (type jpg)
  <use logo-ee.jpg>
-Package pdftex.def Info: logo-ee.jpg used on input line 166.
+Package pdftex.def Info: logo-ee.jpg used on input line 167.
 (pdftex.def)             Requested size: 76.60497pt x 38.30301pt.
- [5] <grafico.png, id=101, 869.2475pt x 561.09625pt>
+ [5] <grafico.png, id=106, 869.2475pt x 561.09625pt>
 File: grafico.png Graphic file (type png)
  <use grafico.png>
-Package pdftex.def Info: grafico.png used on input line 182.
+Package pdftex.def Info: grafico.png used on input line 183.
 (pdftex.def)             Requested size: 424.58624pt x 274.07484pt.
 File: logo-ee.jpg Graphic file (type jpg)
  <use logo-ee.jpg>
-Package pdftex.def Info: logo-ee.jpg used on input line 186.
+Package pdftex.def Info: logo-ee.jpg used on input line 184.
 (pdftex.def)             Requested size: 76.60497pt x 38.30301pt.
- [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 191.
+ [6] <test_map.png, id=111, 588.1975pt x 547.04375pt>
+File: test_map.png Graphic file (type png)
+ <use test_map.png>
+Package pdftex.def Info: test_map.png used on input line 188.
+(pdftex.def)             Requested size: 424.58624pt x 394.88121pt.
+ <test_array.png, id=112, 591.20876pt x 516.93124pt>
+File: test_array.png Graphic file (type png)
+ <use test_array.png>
+Package pdftex.def Info: test_array.png used on input line 190.
+(pdftex.def)             Requested size: 424.58624pt x 371.25157pt.
+ <test_set.png, id=113, 595.22375pt x 515.9275pt>
+File: test_set.png Graphic file (type png)
+ <use test_set.png>
+Package pdftex.def Info: test_set.png used on input line 192.
+(pdftex.def)             Requested size: 424.58624pt x 368.0194pt.
 File: logo-ee.jpg Graphic file (type jpg)
  <use logo-ee.jpg>
-Package pdftex.def Info: logo-ee.jpg used on input line 191.
+Package pdftex.def Info: logo-ee.jpg used on input line 194.
 (pdftex.def)             Requested size: 76.60497pt x 38.30301pt.
  [7 <./grafico.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 191.
- (./TSWLatexianTemp_000614.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 191.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 191.
-Package rerunfilecheck Info: File `TSWLatexianTemp_000614.out' has not changed.
-(rerunfilecheck)             Checksum: 701DC8431D2AD9E63188369732A7EBA8;702.
+File: logo-ee.jpg Graphic file (type jpg)
+ <use logo-ee.jpg>
+Package pdftex.def Info: logo-ee.jpg used on input line 194.
+(pdftex.def)             Requested size: 76.60497pt x 38.30301pt.
+ [8 <./test_map.png>]
+File: logo-ee.jpg Graphic file (type jpg)
+ <use logo-ee.jpg>
+Package pdftex.def Info: logo-ee.jpg used on input line 194.
+(pdftex.def)             Requested size: 76.60497pt x 38.30301pt.
+ [9 <./test_array.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
+File: logo-ee.jpg Graphic file (type jpg)
+ <use logo-ee.jpg>
+Package pdftex.def Info: logo-ee.jpg used on input line 198.
+(pdftex.def)             Requested size: 76.60497pt x 38.30301pt.
+ [10 <./test_set.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
+ (./TSWLatexianTemp_POO_relatorio.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 198.
+Package rerunfilecheck Info: File `TSWLatexianTemp_POO_relatorio.out' has not changed.
+(rerunfilecheck)             Checksum: 6E970738C6CA0E425D99A6B5D5600D1E;778.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 191.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 198.
  ) 
 Here is how much of TeX's memory you used:
- 7324 strings out of 493488
- 109778 string characters out of 3141326
+ 7344 strings out of 493488
+ 110184 string characters out of 3141326
  201428 words of memory out of 3000000
- 10506 multiletter control sequences out of 15000+200000
+ 10519 multiletter control sequences out of 15000+200000
  16111 words of font info for 38 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 36i,15n,43p,693b,530s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,15n,43p,700b,530s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsl1000.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on TSWLatexianTemp_000614.pdf (7 pages, 686401 bytes).
+Output written on TSWLatexianTemp_POO_relatorio.pdf (10 pages, 852025 bytes).
 PDF statistics:
- 159 PDF objects out of 1000 (max. 8388607)
- 129 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
- 124 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 180 PDF objects out of 1000 (max. 8388607)
+ 144 compressed objects within 2 object streams
+ 25 named destinations out of 1000 (max. 500000)
+ 147 words of extra memory for PDF output out of 10000 (max. 10000000)
 
