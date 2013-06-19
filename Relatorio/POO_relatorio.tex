@@ -166,9 +166,11 @@
 				No fim, a lista final é impresso alfabeticamente.
 			\item{Listagem de autores que publicam em todos os anos do intervalo\\}
 				Inicialmente é usado o método listaAutores() que devolve a lista de todos os autores que publicaram nesse ano. Estes autores são inseridos numa estrutura final TreeSet. Para cada um dos anos seguintes é executado o método listaAutores(), e são removidos os autores da estrutura final, caso não se encontrem na nova lista.
-		\end{itemize}	
+		\end{itemize}
+	\newpage
 	\subsection{Consultas Globais}	
-		Foram criadas ainda duas queries que efetuam travessias transversais á estrutura de dados.
+		Foram realizadas duas queries que efetuam consultas globais sobre todo o intervalo de anos á estrutura de dados, e respondem as seguintes queries:
+		
 		\begin{itemize}				
 			\item{\# de linhas duplicadas\\}
 				Esta querie foi calculada com recurso a uma nova leitura do ficheiro publicx.txt, em que as linhas foram inseridas numa estrutura Set. Posteriormente, a diferença entre este Set e a estrutura que tem o nº de linhas inicialmente lidas responde á querie.
@@ -176,20 +178,29 @@
 				Para responder a esta querie é criado um TreeMap em que a Key é o nome de cada autor, e o Value corresponde a um TreeSet com o nome dos respetivos coautores. Posteriormente é pedido o número máximo de co-autores a imprimir. O TreeMap de autores e TreeSet de co-autores foram escolhidos para permitir a impressão ordenada alfabeticamente.
 		\end{itemize}	
 %%%%%%%%%%%%%     Mediadas de Performance 30%    %%%%%%%%%%%%%%%%
+	\newpage
 	\section{Medidas de Performance}
 		\subsection{Tempos de Leitura}
 			Foram realizados testes de tempos de leitura, tendo como base o ficheiro publicx.txt múltiplos do conteúdo deste ficheiro (4x, 6x, 8x), com as classes Scanner e BufferedReader tendo sido obtidos os tempos do gráfico abaixo, com o tempo medido em segundos. Estes tempos são referentes apenas á leitura, e não incluem o parsing. Foi utilizada a classe System.nanoTime para estas medições. Estes resultados espelham a diferença do buffer de 1KB utilizado pela classe Scanner vs o buffer de 8KB utilizado pela classe BufferedReader.\vspace{20pt}
 			 
 			\includegraphics[width=\textwidth]{grafico.png}
+		\newpage
 		\subsection{Performance das Estruturas}
 			Foram realizados alguns testes de performance ás estruturas de dados escolhidas, e posteriormente foram substituídas as estruturas de dados e realizados novamente os testes. Os resultados são apresentados abaixo na forma de gráficos. Os teste foram realizados sem printes para o ecrã.
-			%\vspace{20pt}
-			Este gráfico compara a diferença de tempo da povoação, e execução de duas das travessias mais pesadas, comparando a utilização de TreeMap vs HashMap.
+			\vspace{20pt}
+			
+			Foram substituídas as estruturas de dados que usavam TreeMap por HashMap e depois fizemos o inverso, substituímos todas as estruturas de HashMap por TreeMap.
+			O gráfico seguinte compara a diferença de tempo da povoação, e execução de duas das travessias mais pesadas, comparando a utilização de TreeMap vs HashMap.
 			\includegraphics[width=\textwidth]{test_map.png}
-			Este gráfico salienta a diferença de tempo de execução entre a utilização do Vector e do ArrayList na povuação das estruturas, e posteriormente na querie de duplicação de linhas.
+			\newpage
+			Foram substituídas as estruturas de dados que utilizavam ArrayList por Vector e realizados alguns testes.
+			O gráfico salienta a diferença de tempo de execução entre a utilização do Vector e do ArrayList na povoação das estruturas e posteriormente na querie de duplicação de linhas.
 			\includegraphics[width=\textwidth]{test_array.png}
-			Finalmente, o gráfico seguinte compara a utilização de TreeSet vs HashSet, na execução de duas queries, a que calcula as linhas duplicadas, e a que faz a listagem dos autores que publicam em todos os anos do intervalo.
+			\newpage
+			Realizamos a substituição das estruturas HashSet por TreeSet, e posteriormente o inverso, e efetuamos alguns testes.
+			O seguinte gráfico seguinte compara a utilização de TreeSet vs HashSet, na execução de duas queries, a que calcula as linhas duplicadas, e a que faz a listagem dos autores que publicam em todos os anos do intervalo.
 			\includegraphics[width=\textwidth]{test_set.png}
+			
 %%%%%%%%%%%%%%%		CONCLUSAO		 %%%%%%%%%%%%%%%%%%			
 \section{Conclusão}
 		
